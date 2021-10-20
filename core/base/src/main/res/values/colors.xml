@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources, UnusedIds">
+
+    <color name="laranja">#FFEC7000</color>
+    <color name="branco">@android:color/white</color>
+
+    <!-- Put auxiliar colors down here -->
+    <color name="black_opacity_90">#B3000000</color>
+    <color name="black_opacity_70">#B3000000</color>
+    <color name="black_opacity_30">#4D000000</color>
+    <color name="black_opacity_10">#1A000000</color>
+    <color name="black_opacity_50">#80000000</color>
+    <color name="azul_opacity_50">#80106EB0</color>
+
+    <!-- Opacity -->
+    <color name="opacity_10">#1AFFFFFF</color>
+    <color name="opacity_20">#33FFFFFF</color>
+    <color name="opacity_30">#4DFFFFFF</color>
+    <color name="opacity_40">#66FFFFFF</color>
+    <color name="opacity_50">#80FFFFFF</color>
+    <color name="opacity_55">#8CFFFFFF</color>
+    <color name="opacity_60">#99FFFFFF</color>
+    <color name="opacity_70">#B3FFFFFF</color>
+    <color name="opacity_90">#E6FFFFFF</color>
+
+</resources>

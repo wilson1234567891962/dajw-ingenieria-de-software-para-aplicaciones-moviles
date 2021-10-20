@@ -1,45 +1,69 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.co.music"
-        minSdkVersion 22
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions {
+        disable 'PrivateResource', 'UnusedResources'
+    }
+
+    signingConfigs {
+        debug {
+
+        }
+
+        develop {
+
+        }
+
+        retrofit {
+
+        }
+    }
+
+    productFlavors {
+        retrofit {
+            versionCode 1
+            versionName "1.0.0"
+
+            applicationId "com.co.retrofit"
+            signingConfig signingConfigs.retrofit
+        }
+    }
+
     buildTypes {
+        debug {
+
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        develop {
+
+        }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Core Dependencies
+    implementation project(":core:data")
+    implementation project(":core:base")
+    implementation project(":core:analytics")
+
+    // Feature Dependencies
+    implementation project(":feature:webview")
+
 }
+
+apply plugin: 'com.google.gms.google-services'

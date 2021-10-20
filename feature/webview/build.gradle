@@ -1,0 +1,28 @@
+apply plugin: 'com.android.feature'
+
+android {
+
+    defaultConfig {
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        disable 'RtlEnabled'
+    }
+
+    buildTypes {
+        develop {
+
+        }
+    }
+}
+
+dependencies {
+
+    // Core Dependencies
+    implementation project(":core:data")
+    implementation project(":core:base")
+
+
+}
