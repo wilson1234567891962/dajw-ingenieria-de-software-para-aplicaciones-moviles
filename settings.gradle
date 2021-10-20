@@ -4,5 +4,3 @@ include ':app'
 // Core Modules
 include ':core:data', ':core:base', ':core:analytics'
 
-// Feature Modules
-include ':feature:webview'

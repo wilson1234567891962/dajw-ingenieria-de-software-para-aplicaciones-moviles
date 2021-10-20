@@ -11,10 +11,12 @@ import com.co.base.retrofit.extension.hideLoader
 import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.data.model.dto.TestDto
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity() {
 
     private val viewModel by viewModelProvider(MainViewModel::class)
+    private val  buttonNavigationView: BottomNavigationView by viewProvider(R.id.nav_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setUpListener(){
+
+    }
+
+    private fun setIcon() {
 
     }
 
