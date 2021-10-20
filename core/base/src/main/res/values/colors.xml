@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources, UnusedIds">
 
-    <color name="laranja">#FFEC7000</color>
-    <color name="branco">@android:color/white</color>
+    <color name="orange">#FFEC7000</color>
+
 
     <!-- Put auxiliar colors down here -->
     <color name="black_opacity_90">#B3000000</color>

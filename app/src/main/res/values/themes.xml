@@ -3,8 +3,8 @@
 
     <style name="AppTheme.Login">
         <item name="android:windowBackground">@null</item>
-        <item name="colorControlHighlight">@color/branco</item>
-        <item name="android:colorControlHighlight">@color/branco</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="android:colorControlHighlight">@color/white</item>
     </style>
 
 

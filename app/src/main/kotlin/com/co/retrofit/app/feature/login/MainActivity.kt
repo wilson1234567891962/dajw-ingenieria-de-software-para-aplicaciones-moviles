@@ -15,7 +15,6 @@ import com.co.retrofit.data.model.dto.TestDto
 class MainActivity : BaseActivity() {
 
     private val viewModel by viewModelProvider(MainViewModel::class)
-    private val  runTes: Button by viewProvider(R.id.test_button)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setUpListener(){
-        runTes.setOnClickListener(::clickTest)
+
     }
 
     private fun clickTest(view: View) {
