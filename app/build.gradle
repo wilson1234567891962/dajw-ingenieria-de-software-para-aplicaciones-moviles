@@ -61,6 +61,9 @@ android {
         viewBinding true
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -76,6 +79,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+
+    // Image loading library
+    // For more detail visit the link: https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
