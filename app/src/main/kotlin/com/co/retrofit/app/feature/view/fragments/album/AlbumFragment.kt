@@ -1,14 +1,12 @@
-package com.co.retrofit.app.feature.view.fragments
+package com.co.retrofit.app.feature.view.fragments.album
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.databinding.FragmentHomeBinding
-import com.co.retrofit.app.feature.login.MainViewModel
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumViewModel

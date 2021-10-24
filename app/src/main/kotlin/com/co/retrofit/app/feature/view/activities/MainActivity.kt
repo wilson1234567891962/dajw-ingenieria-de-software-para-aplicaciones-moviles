@@ -1,13 +1,10 @@
-package com.co.retrofit.app.feature.login
+package com.co.retrofit.app.feature.view.activities
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.co.base.retrofit.BaseActivity
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
@@ -16,6 +13,7 @@ import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.data.model.dto.TestDto
 import androidx.navigation.ui.setupWithNavController
+import com.co.retrofit.app.feature.viewmodel.MainViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : BaseActivity() {
@@ -38,6 +36,7 @@ class MainActivity : BaseActivity() {
             .observeData(this, ::getStateFloating)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
+        btnFloating.setOnClickListener(this::addAlbum)
     }
 
     private fun observeErrorThrowable(){
@@ -69,6 +68,10 @@ class MainActivity : BaseActivity() {
          Log.d("Fue resultado exitoso", "Resultado en proceso")
     }
 
+    private fun addAlbum(view: View){
+        val navController = findNavController(R.id.nav_host_fragment)
+        navController.navigate(R.id.fragment_album_creation)
+    }
 
     private fun getStateFloating(state: Boolean) {
         if(state) {

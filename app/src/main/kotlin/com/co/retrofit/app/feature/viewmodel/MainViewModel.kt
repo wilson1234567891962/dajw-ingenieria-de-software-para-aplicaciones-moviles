@@ -1,4 +1,4 @@
-package com.co.retrofit.app.feature.login
+package com.co.retrofit.app.feature.viewmodel
 import androidx.lifecycle.ViewModel
 import com.co.retrofit.data.RepositoryProvider
 import com.co.retrofit.data.livedata.ResponseLiveData
