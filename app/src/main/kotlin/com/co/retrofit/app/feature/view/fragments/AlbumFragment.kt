@@ -6,15 +6,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.databinding.FragmentHomeBinding
+import com.co.retrofit.app.feature.login.MainViewModel
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
 
 class AlbumFragment : Fragment() {
 
-    private lateinit var homeViewModel: AlbumViewModel
 
+    private val homeViewModel by viewModelProvider(AlbumViewModel::class)
     private var mBinding: FragmentHomeBinding? = null
 
 
@@ -23,7 +25,6 @@ class AlbumFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(AlbumViewModel::class.java)
         mBinding = FragmentHomeBinding.inflate(inflater, container, false)
         return mBinding!!.root
     }
@@ -58,5 +59,11 @@ class AlbumFragment : Fragment() {
             mBinding!!.rvAlbumList.visibility = View.GONE
             mBinding!!.tvAlbumAvailable.visibility = View.VISIBLE
         }
+
+        showFloating()
+    }
+
+    private fun showFloating() {
+        homeViewModel.setStateFloating(true)
     }
 }

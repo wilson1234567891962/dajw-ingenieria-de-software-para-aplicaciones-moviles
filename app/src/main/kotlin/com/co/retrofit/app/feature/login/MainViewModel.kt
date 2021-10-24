@@ -9,4 +9,8 @@ class MainViewModel : ViewModel() {
     fun getExampleTest(): ResponseLiveData<TestDto> {
          return RepositoryProvider.sessionRepository.getExampleRequest()
     }
+
+    fun getStateFloating(): ResponseLiveData<Boolean> {
+        return RepositoryProvider.sessionRepository.getStateFloating()
+    }
 }

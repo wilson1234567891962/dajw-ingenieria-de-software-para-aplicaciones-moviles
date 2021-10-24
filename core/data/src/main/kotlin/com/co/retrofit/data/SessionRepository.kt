@@ -6,5 +6,6 @@ import com.co.retrofit.data.model.dto.TestDto
 interface SessionRepository {
 
     fun getExampleRequest(): ResponseLiveData<TestDto> = throw NotImplementedError()
-
+    fun getStateFloating(): ResponseLiveData<Boolean> = throw NotImplementedError()
+    fun setStateFloating(state: Boolean): Unit = throw NotImplementedError()
 }
