@@ -14,6 +14,7 @@ class AlbumCreation: Fragment() {
 
     private val albumCreationViewModel by viewModelProvider(AlbumCreationViewModel::class)
     private var mBinding: FragmentAlbumCreationBinding? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,6 +22,16 @@ class AlbumCreation: Fragment() {
     ): View? {
         mBinding = FragmentAlbumCreationBinding.inflate(inflater, container, false)
         return mBinding!!.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showFloating()
+    }
+
+    private fun showFloating() {
+        albumCreationViewModel.setStateFloating(false)
     }
 
 }
