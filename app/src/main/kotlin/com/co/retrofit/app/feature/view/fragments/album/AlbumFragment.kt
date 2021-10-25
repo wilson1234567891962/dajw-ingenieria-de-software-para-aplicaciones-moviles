@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
-import com.co.retrofit.app.databinding.FragmentHomeBinding
+import com.co.retrofit.app.databinding.FragmentAlbumBinding
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
@@ -15,7 +15,7 @@ class AlbumFragment : Fragment() {
 
 
     private val homeViewModel by viewModelProvider(AlbumViewModel::class)
-    private var mBinding: FragmentHomeBinding? = null
+    private var mBinding: FragmentAlbumBinding? = null
 
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class AlbumFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        mBinding = FragmentAlbumBinding.inflate(inflater, container, false)
         return mBinding!!.root
     }
 

@@ -8,7 +8,7 @@
             android:id="@+id/navigation_album"
             android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
             android:label="@string/title_home"
-            tools:layout="@layout/fragment_home" />
+            tools:layout="@layout/fragment_album" />
     <fragment
             android:id="@+id/navigation_collector"
             android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
