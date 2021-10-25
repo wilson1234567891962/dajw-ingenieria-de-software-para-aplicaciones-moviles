@@ -1,2 +1,6 @@
+rootProject.name='My Application'
 include ':app'
-rootProject.name = "Music"
+
+// Core Modules
+include ':core:data', ':core:base', ':core:analytics'
+

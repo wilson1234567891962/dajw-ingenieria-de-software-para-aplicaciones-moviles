@@ -1,0 +1,18 @@
+[
+  {
+    "outputType": {
+      "type": "APK"
+    },
+    "apkInfo": {
+      "type": "MAIN",
+      "splits": [],
+      "versionCode": 1
+    },
+    "path": "app-retrofit-release.apk",
+    "properties": {
+      "packageId": "com.co.retrofit",
+      "split": "",
+      "minSdkVersion": "21"
+    }
+  }
+]

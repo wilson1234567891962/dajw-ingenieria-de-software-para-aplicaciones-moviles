@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_navigation"
+        app:startDestination="@+id/navigation_album">
+    <fragment
+            android:id="@+id/navigation_album"
+            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
+            android:label="@string/title_home"
+            tools:layout="@layout/fragment_album" />
+    <fragment
+            android:id="@+id/navigation_collector"
+            android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
+            android:label="@string/title_collector"
+            tools:layout="@layout/fragment_collector" />
+    <fragment
+            android:id="@+id/fragment_album_creation"
+            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
+            android:label="@string/title_collector"
+            tools:layout="@layout/fragment_album_creation" />
+</navigation>

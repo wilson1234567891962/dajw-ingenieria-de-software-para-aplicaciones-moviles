@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_24sdp"
+            android:background="@color/white">
+
+        <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_1sdp"
+                android:contentDescription="@string/image_contentDescription"
+                android:src="@drawable/back"
+                tools:src="@drawable/back" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/_24sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:text="Añadir album"
+                android:textSize="@dimen/_24sdp"
+                tools:text="Añadir album" />
+
+    </RelativeLayout>
+
+    <TextView
+            android:layout_below="@+id/relativeLayout"
+            android:id="@+id/caratula_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Caratula"
+            />
+
+    <EditText
+            android:id="@+id/caratula_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout"
+            android:inputType="text"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+    <TextView
+            android:layout_below="@+id/caratula_label"
+            android:id="@+id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Nombre"
+            />
+
+    <EditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caratula_label"
+            android:inputType="text"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+    <TextView
+            android:layout_below="@+id/name_label"
+            android:id="@+id/artista_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Artista"
+            />
+
+    <EditText
+            android:id="@+id/artista_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_label"
+            android:inputType="text"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+
+    <TextView
+            android:layout_below="@+id/artista_label"
+            android:id="@+id/lanzamiento_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Lanzamiento"
+            />
+
+    <EditText
+            android:id="@+id/lanzamiento_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/artista_label"
+            android:layout_marginLeft="@dimen/_24sdp"
+            android:inputType="text"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+    <TextView
+            android:layout_below="@+id/lanzamiento_label"
+            android:id="@+id/Genero_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Genero"
+            />
+
+    <EditText
+            android:id="@+id/Genero_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lanzamiento_label"
+            android:inputType="text"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+
+    <TextView
+            android:layout_below="@+id/Genero_label"
+            android:id="@+id/casa_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Casa discrografica"
+            />
+
+    <EditText
+            android:id="@+id/casa_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Genero_label"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:inputType="text"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+    <TextView
+            android:layout_below="@+id/casa_label"
+            android:id="@+id/descripcion_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_alignParentLeft="true"
+            android:text="Descripcion"
+            />
+
+    <EditText
+            android:id="@+id/descripcion_input"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/casa_label"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:inputType="text|textMultiLine"
+            android:gravity="top"
+            android:layout_toRightOf="@+id/caratula_label" />
+
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_below="@+id/descripcion_input"
+            android:layout_width="match_parent"
+            android:paddingLeft="@dimen/_24sdp"
+            android:paddingRight="@dimen/_24sdp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/btn_cancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:layout_marginRight="@dimen/_24sdp"
+                android:background="@drawable/border_btn"
+                android:layout_weight=".5"/>
+
+        <Button
+                android:id="@+id/btn_aceptar"
+                android:layout_marginLeft="@dimen/_24sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_btn"
+                android:text="Aceptar"
+                android:layout_weight=".5"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

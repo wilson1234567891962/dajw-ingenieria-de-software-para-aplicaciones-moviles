@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+
+    defaultConfig {
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    productFlavors {
+        retrofit {
+
+            def environment = [
+                    local : "172.23.50.81:80"
+            ]
+
+            def serverIp = project.hasProperty("ip") ? ip : environment.local
+            def prodServerIp = "192.168.39.155:8089"
+
+            println "---- Building with IP:  $serverIp ----"
+
+            // Url Config
+            ext.server_url = [
+                    debug  : "http://$prodServerIp/api/character/",
+                    release: "http://$prodServerIp/api/character/",
+                    develop: "http://$serverIp/api/character/"]
+            ext.server_url_public = [
+                    debug  : "http://$prodServerIp/api/character/",
+                    release: "http://$prodServerIp/api/character/",
+                    develop: "http://$serverIp/api/character/"]
+        }
+    }
+
+    // Setup SERVER_URL and SERVER_URL_PUBLIC for all build variants
+    //NOTE: ext.server_url and ext.server_url_public must be set on each flavor
+    libraryVariants.all { variant ->
+        final def flavor = variant.productFlavors[0]
+        final def buildType = variant.buildType.name
+        final def serverUrl = flavor.ext.server_url[buildType]
+        final def serverUrlPublic = flavor.ext.server_url_public[buildType]
+
+        variant.buildConfigField "String", "SERVER_URL", "\"$serverUrl\""
+        variant.buildConfigField "String", "SERVER_URL_PUBLIC", "\"$serverUrlPublic\""
+    }
+
+    buildTypes {
+        develop {
+
+        }
+    }
+
+}
+
+dependencies {
+    api project(":core:analytics")
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.google.code.gson:gson:$versions.gson"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.converter_gson"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.interceptor"
+
+    // Live data
+    implementation "androidx.annotation:annotation:$versions.annotation"
+    api "androidx.lifecycle:lifecycle-extensions:$versions.archComponents"
+}

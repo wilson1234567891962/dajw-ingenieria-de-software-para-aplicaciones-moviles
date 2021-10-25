@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/HeaderView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:parentTag="android.widget.RelativeLayout">
+
+    <TextView
+            android:id="@+id/header_label_initials"
+            style="@style/Text.Small"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/circle_item"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:textColor="?android:attr/colorPrimary"
+            tools:text="J" />
+    <TextView
+            android:id="@+id/header_label_username"
+            style="@style/Text.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/header_label_initials"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_toStartOf="@+id/header_arrow"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?android:attr/colorPrimary"
+            tools:text="Jose Julian" />
+</merge>

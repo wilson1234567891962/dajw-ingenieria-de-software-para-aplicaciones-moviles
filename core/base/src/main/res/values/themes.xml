@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources, UnusedIds">
+
+    <style name="AppTheme" parent="AppTheme.Base" />
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="AppTheme.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="LoaderFragment" parent="@style/AppTheme">
+        <item name="android:windowFrame">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/loader_background</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@android:color/transparent</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="colorPrimary">@color/orange</item>
+    </style>
+
+</resources>
