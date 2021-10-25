@@ -1,10 +1,10 @@
-package com.co.retrofit.app.feature.viewmodel
+package com.co.retrofit.app.feature.viewmodel.album
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.co.retrofit.data.RepositoryProvider
-import com.co.retrofit.data.livedata.ResponseLiveData
+import com.co.retrofit.data.model.dto.Album
 
 class AlbumViewModel : ViewModel() {
 
@@ -15,5 +15,9 @@ class AlbumViewModel : ViewModel() {
 
     fun setStateFloating(state: Boolean) {
         return RepositoryProvider.sessionRepository.setStateFloating(state)
+    }
+
+    fun saveAlbumSelection(album: Album) {
+        return RepositoryProvider.albumRepository.saveAlbumSelection(album)
     }
 }

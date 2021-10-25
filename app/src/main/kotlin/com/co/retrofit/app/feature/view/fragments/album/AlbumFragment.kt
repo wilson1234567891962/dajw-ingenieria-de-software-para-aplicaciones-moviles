@@ -4,17 +4,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
-import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
-import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
+import com.co.retrofit.app.feature.viewmodel.album.AlbumViewModel
 
 class AlbumFragment : Fragment() {
 
 
-    private val homeViewModel by viewModelProvider(AlbumViewModel::class)
+    private val albumViewModel by viewModelProvider(AlbumViewModel::class)
     private var mBinding: FragmentAlbumBinding? = null
 
 
@@ -40,14 +42,18 @@ class AlbumFragment : Fragment() {
         mBinding!!.rvAlbumList.layoutManager =
             GridLayoutManager(requireActivity(), 2)
         // Adapter class is initialized and list is passed in the param.
-        val adapter = AlbumAdapter(this@AlbumFragment)
+        val adapter = AlbumAdapter(this@AlbumFragment) { item ->
+            saveAlbumSelection(item)
+        };
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumList.adapter = adapter
-        var albums = listOf<Album>(Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
+        var albums = listOf<Album>(
             Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
             Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
             Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"))
+            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
+            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana")
+        )
         if (albums.isNotEmpty()) {
             mBinding!!.rvAlbumList.visibility = View.VISIBLE
             mBinding!!.tvAlbumAvailable.visibility = View.GONE
@@ -60,8 +66,14 @@ class AlbumFragment : Fragment() {
 
         showFloating()
     }
+    
+    private fun saveAlbumSelection(album: Album) {
+        albumViewModel.saveAlbumSelection(album)
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.fragment_album_detail)
+    }
 
     private fun showFloating() {
-        homeViewModel.setStateFloating(true)
+        albumViewModel.setStateFloating(true)
     }
 }

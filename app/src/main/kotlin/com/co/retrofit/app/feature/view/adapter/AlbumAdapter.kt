@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.databinding.ItemAlbumLayoutBinding
-import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.data.model.dto.Album
 
 
-class AlbumAdapter(private val fragment: Fragment) :
+class AlbumAdapter(private val fragment: Fragment, private val listener: (Album) -> Unit) :
     RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
 
     private var album: List<Album> = listOf()
@@ -49,6 +49,7 @@ class AlbumAdapter(private val fragment: Fragment) :
 
         holder.tvTitle.text ="Nombre: ${dto.title}"
         holder.tvArtist.text ="Artista: ${dto.artist}"
+        holder.itemView.setOnClickListener { listener(dto) }
     }
 
     /**
@@ -71,5 +72,6 @@ class AlbumAdapter(private val fragment: Fragment) :
         val ivDishImage = view.ivDishImage
         val tvTitle = view.tvDishTitle
         val tvArtist = view.tvArtist
+
     }
 }

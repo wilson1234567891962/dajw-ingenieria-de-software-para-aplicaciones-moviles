@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_24sdp"
+            android:background="@color/white">
+
+        <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_1sdp"
+                android:contentDescription="@string/image_contentDescription"
+                android:src="@drawable/back"
+                tools:src="@drawable/back" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/_24sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:text="Detalle album"
+                android:textSize="@dimen/_24sdp"
+                tools:text="Añadir album" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

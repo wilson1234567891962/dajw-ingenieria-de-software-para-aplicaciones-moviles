@@ -1,4 +1,4 @@
-package com.co.retrofit.app.feature.model.dto
+package com.co.retrofit.data.model.dto
 
 class Album (
     val image: String,

@@ -19,4 +19,10 @@
             android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
             android:label="@string/title_collector"
             tools:layout="@layout/fragment_album_creation" />
+
+    <fragment
+            android:id="@+id/fragment_album_detail"
+            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumDetail"
+            android:label="@string/title_collector"
+            tools:layout="@layout/fragment_album_detail" />
 </navigation>
