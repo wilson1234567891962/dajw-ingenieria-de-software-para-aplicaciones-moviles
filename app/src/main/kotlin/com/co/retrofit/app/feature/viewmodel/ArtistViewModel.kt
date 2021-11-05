@@ -1,11 +1,10 @@
 package com.co.retrofit.app.feature.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter
+import com.co.retrofit.data.RepositoryProvider
 import java.util.*
 
 class ArtistViewModel(application: Application) : AndroidViewModel(application) {
@@ -37,5 +36,22 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
         },{
             _eventNetworkError.value = true
         })
+
+        fun onNetworkErrorShown() {
+            _isNetworkErrorShown.value = true
+        }
+
+        class Factory(val app: Application) : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
+                    @Suppress("UNCHECKED_CAST")
+                    return ArtistViewModel(app) as T
+                }
+                throw IllegalArgumentException("Unable to construct viewmodel")
+            }
+        }
+        fun setStateFloating(state: Boolean) {
+            return RepositoryProvider.sessionRepository.setStateFloating(state)
+        }
     }
 }
