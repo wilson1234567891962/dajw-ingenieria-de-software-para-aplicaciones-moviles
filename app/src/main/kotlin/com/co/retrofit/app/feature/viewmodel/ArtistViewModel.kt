@@ -33,25 +33,26 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
             _artists.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        }, {
             _eventNetworkError.value = true
         })
+    }
 
-        fun onNetworkErrorShown() {
-            _isNetworkErrorShown.value = true
-        }
+    fun onNetworkErrorShown() {
+        _isNetworkErrorShown.value = true
+    }
 
-        class Factory(val app: Application) : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
-                    @Suppress("UNCHECKED_CAST")
-                    return ArtistViewModel(app) as T
-                }
-                throw IllegalArgumentException("Unable to construct viewmodel")
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return ArtistViewModel(app) as T
             }
-        }
-        fun setStateFloating(state: Boolean) {
-            return RepositoryProvider.sessionRepository.setStateFloating(state)
+            throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
+    fun setStateFloating(state: Boolean) {
+        return RepositoryProvider.sessionRepository.setStateFloating(state)
+    }
+
 }
