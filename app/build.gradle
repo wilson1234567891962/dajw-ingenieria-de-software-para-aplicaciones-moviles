@@ -59,6 +59,10 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
+    }
+    dataBinding {
+        enabled true
     }
 
     kotlinOptions {
@@ -82,8 +86,10 @@ dependencies {
 
     // Image loading library
     // For more detail visit the link: https://github.com/bumptech/glide
+    implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 }
