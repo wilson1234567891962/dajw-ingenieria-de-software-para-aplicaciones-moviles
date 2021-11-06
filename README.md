@@ -195,23 +195,6 @@ En siguiente video encontrara una breve explicacion de cuales seran los pasos pa
 https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/EZIyjgvk20xIv9iHBL6-nP4BbgVWOHdO_4pgb8wX8lDzPQ?e=btearI
 
 
-## Funcionalidades y estrategias 🚗
-
-Este proyecto contiene las siguientes funcionalidades:
-
-1. Album:
-    - Iniciar la app ir a la opcion album y deberia visualizarse los artistas
-    - Iniciar la app ir a la opcion album, luego intentar añadir un album, regresar  a la opcion del album y deberia visualizarse los album
-    - Iniciar la app ir a la opcion album  luego ir a la opcion artista y regresar a la opcion album y deberia visualizarse los album
-    
-3. Colecionista:
-    
-4. Artista:
-  
-5. Añadir un album:
-
-6. Ver el detalle de un album:
-
 # Ejecutando las pruebas de Expresso  ⚙️
 
 Para ejecutar unicamente debe  hacer lo siguiente:
@@ -238,7 +221,7 @@ https://user-images.githubusercontent.com/33532595/140618095-56ed7d7e-ee1f-4ab0-
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+_Herramientas usadas para crear el proyecto_
 
 * [Node 12.17.0](https://nodejs.org/es/download/releases/) - Node
 * [Cypress](https://www.cypress.io/) - Cypress
