@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    lintOptions {
+        disable 'UnusedResources'
+    }
+
+    buildTypes {
+        develop {
+
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(":core:data")
+
+    api "androidx.appcompat:appcompat:$versions.appcompat"
+    api "com.google.android.material:material:$versions.material"
+    api "androidx.legacy:legacy-support-v4:$versions.legacy"
+    api "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+
+}

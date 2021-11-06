@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "569183453348",
+    "firebase_url": "https://retrofit-24e1b.firebaseio.com",
+    "project_id": "retrofit-24e1b",
+    "storage_bucket": "retrofit-24e1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569183453348:android:18999c5751a70ae7a32631",
+        "android_client_info": {
+          "package_name": "com.co.retrofit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2w_Cwpw4M3Zt8z_DhzxF85n40P79f4Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569183453348:android:18999c5751a70ae7a32631",
+        "android_client_info": {
+          "package_name": "com.co.retrofit.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2w_Cwpw4M3Zt8z_DhzxF85n40P79f4Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569183453348:android:18999c5751a70ae7a32631",
+        "android_client_info": {
+          "package_name": "com.co.retrofit.develop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2w_Cwpw4M3Zt8z_DhzxF85n40P79f4Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569183453348-2bitsnbst9tia6c6c5uk7q5v78hsk2tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

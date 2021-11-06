@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- HeaderView -->
+    <style name="HeaderView">
+        <item name="android:elevation">@dimen/default_elevation</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Text.Small" parent="android:TextAppearance">
+        <item name="android:textSize">@dimen/_5sdp</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+
+    <style name="Text.Regular" parent="android:TextAppearance">
+        <item name="android:textSize">@dimen/_24sdp</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+
+
+
+
+
+
+</resources>
