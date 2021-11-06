@@ -186,8 +186,7 @@ Ahora va empezar a sincronizar el proyecto debemos esperar que termine el proces
 
 ![Captura](https://user-images.githubusercontent.com/33532595/140616568-039a190d-9e9c-4918-a8cb-f6fbbf005a42.JPG)
 
-Por ultimo vamos a crear un emulador  superior o igual a la version 21 de android studio. En el siguiente enlace se explica como crear un emulador u correr la app. https://developer.android.com/studio/run/emulator?hl=es-419#:~:text=Haz%20clic%20en%20File%20%3E%20Settings%20%3E%20Tools,clic%20en%20View%20%3E%20Tool%20Windows%20%3E%20Emulator.
-
+Por ultimo vamos a crear un emulador  superior o igual a la version 21 de android studio. En el siguiente enlace se explica como crear un emulador u correr la app. https://developer.android.com/studio/run/emulator
 
 ## Funcionalidades y estrategias 🚗
 
