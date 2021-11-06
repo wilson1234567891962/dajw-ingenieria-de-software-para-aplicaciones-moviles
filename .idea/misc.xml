@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/activity_main.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/artist_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_artist_list.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/header_view_col.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/menu/button_nav_menu.xml" value="0.2953125" />
         <entry key="core/base/src/main/res/layout/fragment_dialog_loader.xml" value="0.29483695652173914" />
       </map>
     </option>
