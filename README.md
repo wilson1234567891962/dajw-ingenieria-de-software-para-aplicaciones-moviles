@@ -188,6 +188,13 @@ Ahora va empezar a sincronizar el proyecto debemos esperar que termine el proces
 
 Por ultimo vamos a crear un emulador  superior o igual a la version 21 de android studio. En el siguiente enlace se explica como crear un emulador u correr la app. https://developer.android.com/studio/run/emulator
 
+## Video para correr el proyecto 🚗
+
+En siguiente video encontrara una breve explicacion de cuales seran los pasos para correr el proyecto 
+
+https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/EZIyjgvk20xIv9iHBL6-nP4BbgVWOHdO_4pgb8wX8lDzPQ?e=btearI
+
+
 ## Funcionalidades y estrategias 🚗
 
 Este proyecto está probando las siguientes funcionalidades:
