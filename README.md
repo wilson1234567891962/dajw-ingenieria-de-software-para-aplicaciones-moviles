@@ -1,7 +1,7 @@
 # dajw-ingenieria-de-software-para-aplicaciones-moviles
 
 
-# Music Album 
+# Vinyls
 
 Este proyecto contiene el codigo fuente de la aplicacion de android
 
