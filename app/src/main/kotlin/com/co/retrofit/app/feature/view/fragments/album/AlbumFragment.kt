@@ -4,10 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.base.retrofit.extension.hideLoader
+import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
 import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
 
@@ -43,22 +47,23 @@ class AlbumFragment : Fragment() {
         val adapter = AlbumAdapter(this@AlbumFragment)
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumList.adapter = adapter
-        var albums = listOf<Album>(Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"),
-            Album("https://i.ytimg.com/vi/CFFeAa0fJ0Y/maxresdefault.jpg", "Mana", "Mana"))
-        if (albums.isNotEmpty()) {
-            mBinding!!.rvAlbumList.visibility = View.VISIBLE
-            mBinding!!.tvAlbumAvailable.visibility = View.GONE
+        this.activity?.showLoader()
+        homeViewModel.refreshDataFromNetwork()
+        homeViewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
+            it.apply {
+                if (it.isNotEmpty()) {
+                    mBinding!!.rvAlbumList.visibility = View.VISIBLE
+                    mBinding!!.tvAlbumAvailable.visibility = View.GONE
 
-            adapter.albumList(albums)
-        } else {
-            mBinding!!.rvAlbumList.visibility = View.GONE
-            mBinding!!.tvAlbumAvailable.visibility = View.VISIBLE
-        }
-
-        showFloating()
+                    adapter.albumList(it)
+                } else {
+                    mBinding!!.rvAlbumList.visibility = View.GONE
+                    mBinding!!.tvAlbumAvailable.visibility = View.VISIBLE
+                }
+            }
+            this.activity?.hideLoader()
+        })
+         showFloating()
     }
 
     private fun showFloating() {

@@ -43,12 +43,12 @@ class AlbumAdapter(private val fragment: Fragment) :
 
         // Load the dish image in the ImageView.
         Glide.with(fragment)
-            .load(dto.image)
+            .load(dto.cover)
             .apply(RequestOptions.circleCropTransform())
             .into(holder.ivDishImage)
 
-        holder.tvTitle.text ="Nombre: ${dto.title}"
-        holder.tvArtist.text ="Artista: ${dto.artist}"
+        holder.tvTitle.text ="Nombre: ${dto.name}"
+        holder.tvArtist.text ="Género: ${dto.genre}"
     }
 
     /**

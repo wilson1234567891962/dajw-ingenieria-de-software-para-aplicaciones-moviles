@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.base.retrofit.extension.hideLoader
+import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentArtistListBinding
 import com.co.retrofit.app.feature.model.dto.Artist
@@ -65,10 +67,12 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
         }
         activity.actionBar?.title = getString(R.string.title_artist)
         viewModel = ViewModelProvider(this, ArtistViewModel.Factory(activity.application)).get(ArtistViewModel::class.java)
+        this.activity?.showLoader()
         viewModel.artists.observe(viewLifecycleOwner, Observer<List<Artist>> {
             it.apply {
                 viewModelAdapter!!.artists = this
             }
+            this.activity?.hideLoader()
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
