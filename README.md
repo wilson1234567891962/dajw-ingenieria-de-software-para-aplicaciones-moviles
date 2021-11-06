@@ -154,7 +154,7 @@ Clonar el repositorio a traves de git siguiendo los siguientes pasos
 * Abrir la terminal y ubicarse en la ruta donde se encuentra creada la carpeta a traves de la terminal 
 
 
-* Clonar el repositorio a traves del siguiente commando  **git clone https://github.com/Alejito29/JWDA-Kraken-Semana5**
+* Clonar el repositorio a traves del siguiente commando  **git clone https://github.com/wilson1234567891962/dajw-ingenieria-de-software-para-aplicaciones-moviles.git**
 
 ![git](https://user-images.githubusercontent.com/78820446/117548460-c7944580-affa-11eb-87bd-e5e574837e68.PNG)
 
@@ -167,17 +167,26 @@ El siguiente paso
 Dirigirse a  la carpeta clonada con la terminal del paso anterior 
 ```
 
-* Sobre la carpeta creada en el paso anterior y el proyecto clonado, debe ejecutarse el siguiente comando **cd JWDA-Kraken-Semana5\proyecto**
+* Sobre la carpeta creada en el paso anterior y el proyecto clonado, debe ejecutarse el siguiente comando **cd dajw-ingenieria-de-software-para-aplicaciones-moviles/**
 
-![cd](https://user-images.githubusercontent.com/78820446/117548561-47221480-affb-11eb-8e16-2f6824ba9f5c.PNG)
+![Captura](https://user-images.githubusercontent.com/33532595/140616455-b1ab21e2-d646-410b-a6ff-b103cf6c5361.JPG)
 
 
-* Sobre la carpeta **proyecto** ejecutar **bundle install** no debe salir ningun error en el proceso de instalacion, en caso de salir algun error debe revisar la instalacion de kraken 
+* Ahora una ves clonado el repositorio, vamos abrir el proyecto con android studio es importante que sea la version indica **Fox**
 
-![bundle install](https://user-images.githubusercontent.com/78820446/117548609-83ee0b80-affb-11eb-9156-42676e71ce9f.PNG)
+**Imagen de visualizacion de android**
 
-* Ubiquese en la carpeta donde realizo la instalacion de bundle install, una vez ubicado en la carpeta de proyectos debera ejecutar el comando **bundle exec kraken-mobile setup**, allí deberá seleccionar 1 usuario web. Esto le creará el archivo **kraken_mobile_settings.json**.
+![Captura](https://user-images.githubusercontent.com/33532595/140616497-0d368124-e521-4bab-91fb-5ef1265375cf.JPG)
 
+**Imagen para abrir el proyecto**
+
+![Captura](https://user-images.githubusercontent.com/33532595/140616525-140baddb-ece6-4e0e-b428-abc8be708502.JPG)
+
+Ahora va empezar a sincronizar el proyecto debemos esperar que termine el proceso
+
+![Captura](https://user-images.githubusercontent.com/33532595/140616568-039a190d-9e9c-4918-a8cb-f6fbbf005a42.JPG)
+
+Por ultimo vamos a crear un emulador  superior o igual a la version 21 de android studio. En el siguiente enlace se explica como crear un emulador u correr la app. https://developer.android.com/studio/run/emulator?hl=es-419#:~:text=Haz%20clic%20en%20File%20%3E%20Settings%20%3E%20Tools,clic%20en%20View%20%3E%20Tool%20Windows%20%3E%20Emulator.
 
 
 ## Funcionalidades y estrategias 🚗
