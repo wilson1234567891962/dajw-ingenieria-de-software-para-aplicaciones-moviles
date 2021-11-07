@@ -22,13 +22,13 @@ import com.co.retrofit.app.feature.view.activities.MainActivity;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class Test1Album {
+public class Test1Artists {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void test1Album() {
+    public void test1Artist() {
 
         ViewInteraction artistastBtn = onView(allOf(withId(R.id.navigation_artist),isDisplayed()));
         artistastBtn.perform(click());
