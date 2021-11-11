@@ -6,13 +6,8 @@ import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter
 
 class ArtistRepository (private val application: Application){
-    fun refreshData(callback: (List<Artist>)->Unit, onError: (VolleyError)->Unit) {
+    suspend fun refreshData():List<Artist> {
 
-        NetworkServiceAdapter.getInstance(application).getArtists({
-
-            callback(it)
-        },
-            onError
-        )
+        return NetworkServiceAdapter.getInstance(application).getArtists()
     }
 }
