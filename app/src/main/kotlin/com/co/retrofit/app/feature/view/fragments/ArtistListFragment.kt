@@ -67,12 +67,12 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
         }
         activity.actionBar?.title = getString(R.string.title_artist)
         viewModel = ViewModelProvider(this, ArtistViewModel.Factory(activity.application)).get(ArtistViewModel::class.java)
-        this.activity?.showLoader()
+        //this.activity?.showLoader()
         viewModel.artists.observe(viewLifecycleOwner, Observer<List<Artist>> {
             it.apply {
                 viewModelAdapter!!.artists = this
             }
-            this.activity?.hideLoader()
+            //this.activity?.hideLoader()
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
