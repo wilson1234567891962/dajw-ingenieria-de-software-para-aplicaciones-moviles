@@ -3,10 +3,12 @@ package com.co.retrofit.app.feature.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ArtistItemBinding
@@ -33,14 +35,9 @@ class ArtistAdapter(private val fragment: Fragment):
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.artist = artists[position]
-            val artistImg = artists[position]
 
-            Glide.with(fragment)
-                .load(artistImg.image)
-                .apply(RequestOptions.circleCropTransform())
-                .into(holder.ivDishImage)
         }
-        // holder.viewDataBinding.root.setOnClickListener {}
+        holder.bind(artists[position])
     }
 
     override fun getItemCount(): Int {
@@ -54,6 +51,15 @@ class ArtistAdapter(private val fragment: Fragment):
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.artist_item
+        }
+        fun bind(artist: Artist) {
+            Glide.with(itemView)
+                .load(artist.image.toUri().buildUpon().scheme("https").build())
+                .apply(RequestOptions.circleCropTransform()
+                    .placeholder(R.drawable.loading_animation)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.ic_broken_image))
+                .into(viewDataBinding.ivDishImage)
         }
     }
 
