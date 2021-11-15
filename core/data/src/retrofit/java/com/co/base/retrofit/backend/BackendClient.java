@@ -5,6 +5,8 @@ import com.co.retrofit.data.remote.Api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 import kotlin.Function;
 import kotlin.Unit;
 import okhttp3.OkHttpClient;
@@ -28,18 +30,24 @@ public class BackendClient {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BuildConfig.SERVER_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
+                    .client(generateOkHttpClient())
                     .client(client)
                     .build();
         }
         return retrofit;
     }
 
-    public static String callApi(Function<Unit> function) {
-
-        // api= initClient().create(Api.class);
-        // api.getExampleTest();
-        return "";
+    private static  OkHttpClient generateOkHttpClient() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .connectTimeout(1, TimeUnit.MINUTES)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(15, TimeUnit.SECONDS)
+                .build();
     }
+
 
     public static Api api(Class<Api> instance) {
         api = retrofit.create(instance);
