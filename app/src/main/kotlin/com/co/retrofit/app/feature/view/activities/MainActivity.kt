@@ -79,6 +79,11 @@ class MainActivity : BaseActivity() {
 
     private fun addAlbum(view: View){
         val navController = findNavController(R.id.nav_host_fragment)
+
+        if(navController?.currentDestination?.id == R.id.navigation_detail_album){
+            navController.navigate(R.id.navigation_add_music)
+            return
+        }
         navController.navigate(R.id.fragment_album_creation)
     }
 

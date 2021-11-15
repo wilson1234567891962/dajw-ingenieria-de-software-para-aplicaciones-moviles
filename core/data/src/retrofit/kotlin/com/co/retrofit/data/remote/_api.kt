@@ -3,6 +3,7 @@ package com.co.retrofit.data.remote
 import com.co.base.retrofit.backend.BackendClient
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.data.model.dto.Artist
+import com.co.retrofit.data.model.dto.DetailAlbum
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -13,6 +14,9 @@ interface Api {
 
     @GET("/bands")
     fun getArtist(): Call<List<Artist>>
+
+    @GET("/detail")
+    fun getDetailAlbum(): Call<DetailAlbum>
 }
 
 val api: Api by lazy { BackendClient.api(Api::class.java) }

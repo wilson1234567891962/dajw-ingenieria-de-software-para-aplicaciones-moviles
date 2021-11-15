@@ -8,5 +8,10 @@ class Album (
     @SerializedName("name")
     val name: String,
     @SerializedName("genre")
-    val genre: String
+    val genre: String,
+    @SerializedName("description")
+    val description: String,
+    @SerializedName("recordLabel")
+    val recordLabel: String
+
 )
