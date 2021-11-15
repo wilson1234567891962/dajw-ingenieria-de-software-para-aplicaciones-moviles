@@ -18,4 +18,9 @@
     <string name="detail_title_list_title">Cancion</string>
     <string name="detail_duration_list_title">Duracion</string>
     <string name="todo">TODO</string>
+
+
+    <string name="detail_add_music_title">Añadir cancion</string>
+    <string name="detail_add_music_title_one">Nombre de cancion</string>
+    <string name="detail_add_music_title_second">Duracion</string>
 </resources>

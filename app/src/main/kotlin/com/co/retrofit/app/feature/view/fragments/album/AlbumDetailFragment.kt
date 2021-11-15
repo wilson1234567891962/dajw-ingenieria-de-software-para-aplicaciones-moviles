@@ -36,7 +36,7 @@ class AlbumDetailFragment : Fragment() {
     private val recordAlbum: TextView by viewProvider(R.id.record_album)
     private val description: EditText by viewProvider(R.id.description)
     private lateinit var adapterMusic: DetailAlbumMusicAdapter
-    private val back: Button by viewProvider(R.id.back_detail_album)
+    private val back: View by viewProvider(R.id.back_detail_album)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,17 +47,6 @@ class AlbumDetailFragment : Fragment() {
         return mBinding!!.root
     }
 
-    private fun setUpListenerEvent() {
-        back.setOnClickListener(this::backPressed)
-    }
-
-    private fun backPressed(view: View) {
-        val imm: InputMethodManager? = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm?.hideSoftInputFromWindow(view.windowToken, 0)
-        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
-        navController?.navigate(R.id.navigation_album)
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -65,6 +54,17 @@ class AlbumDetailFragment : Fragment() {
             .observeSingleData(this, ::callServiceApi)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
+        setUpListenerEvent()
+        showFloating()
+    }
+
+    private fun setUpListenerEvent() {
+        back.setOnClickListener(this::backPressed)
+    }
+
+    private fun backPressed(view: View) {
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.navigation_album)
     }
 
     private fun callServiceApi(album: Album){
@@ -94,6 +94,10 @@ class AlbumDetailFragment : Fragment() {
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumDetailList.adapter = adapterMusic
         adapterMusic.albumMusicList(music)
+    }
+
+    private fun showFloating() {
+        albumDetailViewModel.setStateFloating(true)
     }
 
     private fun observeErrorThrowable(){
