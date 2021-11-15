@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ArtistItemBinding
-import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.data.model.dto.Artist
 
 class ArtistAdapter(private val fragment: Fragment):
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
