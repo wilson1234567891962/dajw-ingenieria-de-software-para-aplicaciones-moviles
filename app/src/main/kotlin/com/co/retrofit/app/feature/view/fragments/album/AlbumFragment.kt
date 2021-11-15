@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
-import com.co.base.retrofit.extension.hideLoader
-import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
 import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.app.feature.view.adapter.AlbumAdapter
+import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
 
 class AlbumFragment : Fragment() {
@@ -39,16 +36,6 @@ class AlbumFragment : Fragment() {
          * The onChanged() method fires when the observed data changes and the activity is in the foreground.
          */
 
-
-        // Set the LayoutManager that this RecyclerView will use.
-        mBinding!!.rvAlbumList.layoutManager =
-            GridLayoutManager(requireActivity(), 2)
-        // Adapter class is initialized and list is passed in the param.
-        adapter = AlbumAdapter(this@AlbumFragment)
-        // adapter instance is set to the recyclerview to inflate the items.
-        mBinding!!.rvAlbumList.adapter = adapter
-
-
         homeViewModel.getAlbumCache()
             .observeSingleData(this, ::processAlbum)
             .observeError(this, ::observeErrorThrowable)
@@ -57,6 +44,16 @@ class AlbumFragment : Fragment() {
     }
 
     private fun processAlbum(albums: List<Album>) {
+        // Set the LayoutManager that this RecyclerView will use.
+        mBinding!!.rvAlbumList.layoutManager =
+            GridLayoutManager(requireActivity(), 2)
+        // Adapter class is initialized and list is passed in the param.
+        adapter = AlbumAdapter(this@AlbumFragment, albums) { item ->
+            this.processItemAdapter(item);
+        };
+        // adapter instance is set to the recyclerview to inflate the items.
+        mBinding!!.rvAlbumList.adapter = adapter
+
         if (albums.isNotEmpty()) {
             mBinding!!.rvAlbumList.visibility = View.VISIBLE
             mBinding!!.tvAlbumAvailable.visibility = View.GONE
@@ -66,6 +63,11 @@ class AlbumFragment : Fragment() {
             mBinding!!.rvAlbumList.visibility = View.GONE
             mBinding!!.tvAlbumAvailable.visibility = View.VISIBLE
         }
+    }
+
+
+    private fun processItemAdapter(album: Album){
+        Log.d("Fue resultado exitoso", album.cover)
     }
 
     private fun observeErrorThrowable(){

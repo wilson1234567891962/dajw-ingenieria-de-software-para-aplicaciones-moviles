@@ -1,4 +1,4 @@
-package com.co.retrofit.app.feature.view.adapter
+package com.co.retrofit.app.feature.view.adapter.album
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,9 @@ import com.co.retrofit.app.databinding.ItemAlbumLayoutBinding
 import com.co.retrofit.data.model.dto.Album
 
 
-class AlbumAdapter(private val fragment: Fragment) :
+class AlbumAdapter(private val fragment: Fragment,
+                   private val items: List<Album>,
+                   private val listener: (Album) -> Unit) :
     RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
 
     private var album: List<Album> = listOf()
@@ -49,6 +51,7 @@ class AlbumAdapter(private val fragment: Fragment) :
 
         holder.tvTitle.text ="Nombre: ${dto.name}"
         holder.tvArtist.text ="Género: ${dto.genre}"
+        holder.itemView.setOnClickListener { listener(dto) }
     }
 
     /**
