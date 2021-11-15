@@ -1,12 +1,16 @@
 package com.co.retrofit.app.feature.view.fragments.album
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -32,6 +36,7 @@ class AlbumDetailFragment : Fragment() {
     private val recordAlbum: TextView by viewProvider(R.id.record_album)
     private val description: EditText by viewProvider(R.id.description)
     private lateinit var adapterMusic: DetailAlbumMusicAdapter
+    private val back: Button by viewProvider(R.id.back_detail_album)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +46,18 @@ class AlbumDetailFragment : Fragment() {
         mBinding = FragmentAlbumDetailBinding.inflate(inflater, container, false)
         return mBinding!!.root
     }
+
+    private fun setUpListenerEvent() {
+        back.setOnClickListener(this::backPressed)
+    }
+
+    private fun backPressed(view: View) {
+        val imm: InputMethodManager? = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm?.hideSoftInputFromWindow(view.windowToken, 0)
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.navigation_album)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

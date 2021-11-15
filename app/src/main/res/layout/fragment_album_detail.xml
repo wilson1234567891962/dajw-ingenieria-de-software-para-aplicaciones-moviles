@@ -16,6 +16,7 @@
                 android:paddingBottom="@dimen/_8sdp">
 
             <ImageView
+                    android:id="@+id/back_detail_album"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/back"></ImageView>
