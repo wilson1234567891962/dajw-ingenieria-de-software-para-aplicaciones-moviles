@@ -35,8 +35,6 @@ class MainActivity : BaseActivity() {
     private fun setUpListenerEvent() {
         viewModel.getStateFloating()
             .observeData(this, ::getStateFloating)
-            .observeShowLoading(this, ::showLoader)
-            .observeHideLoading(this, ::hideLoader)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
         btnFloating.setOnClickListener(this::addAlbum)
@@ -52,16 +50,16 @@ class MainActivity : BaseActivity() {
     }
 
     private fun getAlbumsApi() {
-        this.showLoader()
         viewModel.getAlbumsApi()
             .observeData(this, ::showResult)
+            .observeShowLoading(this, ::showLoader)
+            .observeHideLoading(this, ::hideLoader)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
     private fun showResult(albums: List<Album>) {
         viewModel.setAlbumApi(albums)
-        this.hideLoader()
     }
 
     private fun addAlbum(view: View){
