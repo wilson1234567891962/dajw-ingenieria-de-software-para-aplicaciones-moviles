@@ -54,6 +54,5 @@ class SplashActivity : AppCompatActivity() {
                 // "Add the code that you want to execute when animation repeats")
             }
         })
-
     }
 }
