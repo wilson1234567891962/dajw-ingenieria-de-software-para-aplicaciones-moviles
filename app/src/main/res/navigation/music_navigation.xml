@@ -23,4 +23,9 @@
             android:id="@+id/navigation_artist"
             android:name="com.co.retrofit.app.feature.view.fragments.ArtistListFragment"
             android:label="@string/title_artist" />
+
+    <fragment
+            android:id="@+id/navigation_detail_album"
+            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumDetailFragment"
+            android:label="@string/title_artist" />
 </navigation>

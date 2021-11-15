@@ -12,4 +12,7 @@
     <string name="label_album_added_yet">No hay albumes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="detail_album_title">Detalle album</string>
 </resources>

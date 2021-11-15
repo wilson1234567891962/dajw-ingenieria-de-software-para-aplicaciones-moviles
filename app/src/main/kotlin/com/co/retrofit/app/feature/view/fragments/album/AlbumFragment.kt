@@ -5,17 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
-import com.co.retrofit.app.feature.viewmodel.AlbumViewModel
+import com.co.retrofit.app.feature.viewmodel.album.AlbumViewModel
 
 class AlbumFragment : Fragment() {
 
 
-    private val homeViewModel by viewModelProvider(AlbumViewModel::class)
+    private val albumViewModel by viewModelProvider(AlbumViewModel::class)
     private var mBinding: FragmentAlbumBinding? = null
     private lateinit var adapter: AlbumAdapter
 
@@ -36,7 +40,7 @@ class AlbumFragment : Fragment() {
          * The onChanged() method fires when the observed data changes and the activity is in the foreground.
          */
 
-        homeViewModel.getAlbumCache()
+        albumViewModel.getAlbumCache()
             .observeSingleData(this, ::processAlbum)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
@@ -67,7 +71,9 @@ class AlbumFragment : Fragment() {
 
 
     private fun processItemAdapter(album: Album){
-        Log.d("Fue resultado exitoso", album.cover)
+        albumViewModel.saveSelectionItem(album)
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.navigation_detail_album)
     }
 
     private fun observeErrorThrowable(){
@@ -80,6 +86,6 @@ class AlbumFragment : Fragment() {
 
 
     private fun showFloating() {
-        homeViewModel.setStateFloating(true)
+        albumViewModel.setStateFloating(true)
     }
 }
