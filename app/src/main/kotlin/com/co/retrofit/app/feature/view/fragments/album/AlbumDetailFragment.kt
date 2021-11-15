@@ -57,12 +57,6 @@ class AlbumDetailFragment : Fragment() {
         titleAlbum.text = "${detailAlbum.name}"
         artistAlbum.text = "Artista: ${detailAlbum.name}"
         releaseAlbum.text = "Lanzamiento: ${detailAlbum.release}"
-        mBinding?.imageAlbum?.let {
-            Glide.with(this)
-                .load(detailAlbum.image)
-                .apply(RequestOptions.circleCropTransform())
-                .into(it)
-        }
         genereAlbum.text = "Genero: ${detailAlbum.genre}"
         recordAlbum.text = "Casa discográfica: ${detailAlbum.recordLabel}"
         description.setText(detailAlbum.description)

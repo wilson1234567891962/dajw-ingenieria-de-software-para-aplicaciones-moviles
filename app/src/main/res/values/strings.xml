@@ -15,4 +15,6 @@
 
 
     <string name="detail_album_title">Detalle album</string>
+    <string name="detail_title_list_title">Cancion</string>
+    <string name="detail_duration_list_title">Duracion</string>
 </resources>
