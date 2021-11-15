@@ -7,15 +7,19 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumDetailBinding
+import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
+import com.co.retrofit.app.feature.view.adapter.album.DetailAlbumMusicAdapter
 import com.co.retrofit.app.feature.viewmodel.album.AlbumDetailViewModel
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.data.model.dto.DetailAlbum
+import com.co.retrofit.data.model.dto.MusicAlbum
 
 
 class AlbumDetailFragment : Fragment() {
@@ -27,6 +31,7 @@ class AlbumDetailFragment : Fragment() {
     private val genereAlbum: TextView by viewProvider(R.id.gnere_album)
     private val recordAlbum: TextView by viewProvider(R.id.record_album)
     private val description: EditText by viewProvider(R.id.description)
+    private lateinit var adapterMusic: DetailAlbumMusicAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,6 +65,18 @@ class AlbumDetailFragment : Fragment() {
         genereAlbum.text = "Genero: ${detailAlbum.genre}"
         recordAlbum.text = "Casa discográfica: ${detailAlbum.recordLabel}"
         description.setText(detailAlbum.description)
+        this.showListMusic(detailAlbum.music)
+    }
+
+    private fun showListMusic(music: List<MusicAlbum>) {
+        // Set the LayoutManager that this RecyclerView will use.
+        mBinding!!.rvAlbumDetailList.layoutManager =
+            GridLayoutManager(requireActivity(), 1)
+        // Adapter class is initialized and list is passed in the param.
+        adapterMusic = DetailAlbumMusicAdapter(this@AlbumDetailFragment)
+        // adapter instance is set to the recyclerview to inflate the items.
+        mBinding!!.rvAlbumDetailList.adapter = adapterMusic
+        adapterMusic.albumMusicList(music)
     }
 
     private fun observeErrorThrowable(){

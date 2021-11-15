@@ -18,5 +18,5 @@ class DetailAlbum (
     @SerializedName("description")
     val description: String,
     @SerializedName("music")
-    val music: Array<MusicAlbum>
+    val music: List<MusicAlbum>
 )

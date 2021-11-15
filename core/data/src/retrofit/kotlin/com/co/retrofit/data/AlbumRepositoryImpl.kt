@@ -35,7 +35,11 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         // return makeRequest(api.getDetailAlbum())
         val liveData = MutableResponseLiveData<DetailAlbum>()
         liveData.postData(DetailAlbum("Amor   Clandestino","Mana", "2011","https://i.pinimg.com/564x/aa/5f/ed/aa5fed7fac61cc8f41d1e79db917a7cd.jpg", "Rock", "Sony Music",
-            "Maná es una banda de rock pop mexicana aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa", arrayOf(MusicAlbum(" Mariposa Traicionera", "4:40"))))
+            "Maná es una banda de rock pop mexicana aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa",
+            arrayListOf(
+                MusicAlbum(" Mariposa Traicionera", "4:40"),
+                MusicAlbum(" Mariposa Traicionera", "4:40"))
+        ))
         this.detailAlbum.swapSource(liveData)
         return this.detailAlbum
     }
