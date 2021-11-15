@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.databinding.ItemAlbumLayoutBinding
-import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.data.model.dto.Album
 
 
 class AlbumAdapter(private val fragment: Fragment) :

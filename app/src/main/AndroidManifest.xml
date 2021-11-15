@@ -5,8 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
-
     <application
             android:name=".feature.RetrofitApplication"
             android:allowBackup="true"
@@ -17,9 +15,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
-        <uses-library android:name="android.test.runner"
-                android:required="false" />
 
         <activity android:name=".feature.view.activities.MainActivity">
             <intent-filter>

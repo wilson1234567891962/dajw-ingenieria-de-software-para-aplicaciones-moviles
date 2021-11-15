@@ -14,6 +14,7 @@ import com.co.retrofit.app.R
 import com.co.retrofit.data.model.dto.TestDto
 import androidx.navigation.ui.setupWithNavController
 import com.co.retrofit.app.feature.viewmodel.MainViewModel
+import com.co.retrofit.data.model.dto.Album
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : BaseActivity() {
@@ -34,9 +35,12 @@ class MainActivity : BaseActivity() {
     private fun setUpListenerEvent() {
         viewModel.getStateFloating()
             .observeData(this, ::getStateFloating)
+            .observeShowLoading(this, ::showLoader)
+            .observeHideLoading(this, ::hideLoader)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
         btnFloating.setOnClickListener(this::addAlbum)
+        getAlbumsApi()
     }
 
     private fun observeErrorThrowable(){
@@ -47,25 +51,17 @@ class MainActivity : BaseActivity() {
         Log.d("Fue resultado exitoso", error.toString())
     }
 
-    private fun setUpListener(){
-
-    }
-
-    private fun setIcon() {
-
-    }
-
-    private fun clickTest(view: View) {
-        showLoader()
-        viewModel.getExampleTest()
+    private fun getAlbumsApi() {
+        this.showLoader()
+        viewModel.getAlbumsApi()
             .observeData(this, ::showResult)
             .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
-    private fun showResult(test: TestDto) {
-         hideLoader()
-         Log.d("Fue resultado exitoso", "Resultado en proceso")
+    private fun showResult(albums: List<Album>) {
+        viewModel.setAlbumApi(albums)
+        this.hideLoader()
     }
 
     private fun addAlbum(view: View){
