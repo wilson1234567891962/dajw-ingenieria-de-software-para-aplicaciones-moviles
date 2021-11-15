@@ -9,10 +9,12 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.app.feature.model.dto.Collector
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 import org.json.JSONArray
+import java.util.stream.Collectors
 
 
 class NetworkServiceAdapter constructor(context: Context) {
@@ -43,6 +45,25 @@ class NetworkServiceAdapter constructor(context: Context) {
                             image = item.getString("image"),
                             creationDate = item.getString("creationDate"),
                             description = item.getString("description")))
+                }
+                cont.resume(list)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException (it)
+            }))
+    }
+    suspend fun getCollectors() =  suspendCoroutine<List<Collector>>{ cont->
+        requestQueue.add(getRequest("collectors",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Collector>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Collector(
+                        collectorId = item.getInt("id"),
+                        name = item.getString("name"),
+                        telephone = item.getString("telephone"),
+                        email = item.getString("email")))
                 }
                 cont.resume(list)
             },

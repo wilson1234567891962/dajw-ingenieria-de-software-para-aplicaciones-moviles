@@ -3,6 +3,7 @@ package com.co.retrofit.app.feature.network
 import android.content.Context
 import android.content.SharedPreferences
 import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.app.feature.model.dto.Collector
 
 class CacheManager(context: Context) {
     companion object{
@@ -15,6 +16,8 @@ class CacheManager(context: Context) {
             }
         const val APP_SPREFS = "com.co.retrofit.app"
         const val ARTIST_SPREFS = "com.co.retrofit.artist"
+        const val COLLECTOR_SPREFS = "com.co.retrofit.collector"
+
         fun getPrefs(context: Context, name:String): SharedPreferences {
             return context.getSharedPreferences(
                 name,
@@ -33,5 +36,21 @@ class CacheManager(context: Context) {
     fun getArtists() : List<Artist>{
         return if (artistsHashMap.isNotEmpty()) ArrayList(artistsHashMap.values)!! else listOf<Artist>()
     }
+
+
+    private var collectorsHashMap: HashMap<Int, Collector> = hashMapOf()
+    fun addCollectors(collectors: List<Collector>){
+        for (collector in collectors) {
+            if (!collectorsHashMap.containsKey(collector.collectorId)) {
+                collectorsHashMap.put(collector.collectorId, collector)
+            }
+        }
+    }
+    fun getCollectors() : List<Collector>{
+        return if (collectorsHashMap.isNotEmpty()) ArrayList(collectorsHashMap.values)!! else listOf<Collector>()
+    }
+
+
+
 
 }
