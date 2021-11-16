@@ -4,10 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/activity_main.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/album_of_artist_item.xml" value="0.15" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/artis_detail_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/artist_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_albums_of_artist.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_artist_detail.xml" value="0.15" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_artist_list.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_collector.xml" value="0.15" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/header_view_col.xml" value="0.2953125" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/item_album_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/menu/button_nav_menu.xml" value="0.2953125" />
         <entry key="core/base/src/main/res/layout/fragment_dialog_loader.xml" value="0.29483695652173914" />
       </map>

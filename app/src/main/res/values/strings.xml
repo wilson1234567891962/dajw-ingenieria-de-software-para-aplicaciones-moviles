@@ -6,6 +6,8 @@
     <string name="title_collector">Coleccionistas</string>
     <string name="title_artist">Artistas</string>
     <string name="title_search">Buscador</string>
+    <string name="title_albums_of_artist">Albumes del artista</string>
+    <string name="txt_no_comments">No hay albumes para este artista</string>
 
     <string name="image_contentDescription">Buscador</string>
 

@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ArtistItemBinding
 import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.app.feature.view.fragments.ArtistListFragmentDirections
 
 class ArtistAdapter(private val fragment: Fragment):
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
@@ -39,6 +41,12 @@ class ArtistAdapter(private val fragment: Fragment):
                 .load(artistImg.image)
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.ivDishImage)
+        }
+
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].artistId)
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
         }
         // holder.viewDataBinding.root.setOnClickListener {}
     }
