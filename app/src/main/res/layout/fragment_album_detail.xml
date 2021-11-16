@@ -65,14 +65,15 @@
                 tools:text="@string/app_name" />
 
         <TextView
-                android:layout_below="@+id/name_artist_album"
                 android:id="@+id/release_date_album"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/name_artist_album"
                 android:layout_gravity="left"
-                android:text="@string/app_name"
+                android:maxLength="23"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:paddingBottom="@dimen/_16sdp"
+                android:text="@string/app_name"
                 android:textColor="@color/blue"
                 android:textSize="@dimen/_16sdp" />
 
