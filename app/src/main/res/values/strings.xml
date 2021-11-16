@@ -23,4 +23,7 @@
     <string name="detail_add_music_title">Añadir cancion</string>
     <string name="detail_add_music_title_one">Nombre de cancion</string>
     <string name="detail_add_music_title_second">Duracion</string>
+
+    <string name="maintenance">Se presentaron problemas tecnicos por favor intente nuevamente.</string>
+    <string name="maintenance_button">Intentar de nuevo</string>
 </resources>

@@ -6,20 +6,18 @@ import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.data.RepositoryProvider
 import com.co.retrofit.data.livedata.ResponseLiveData
 import com.co.retrofit.data.model.dto.DetailAlbum
+import com.co.retrofit.data.model.dto.Music
+import com.google.gson.JsonElement
 
 
 class AlbumMusicViewModel(application: Application) :  AndroidViewModel(application) {
 
 
-    fun getAlbumSelection(): ResponseLiveData<Album> {
-        return RepositoryProvider.albumRepository.getAlbumSelectionMemory()
-    }
-
-    fun getAlbumDetailApi(album: Album): ResponseLiveData<DetailAlbum> {
-        return RepositoryProvider.albumRepository.getDetailAlbumApi(album)
-    }
-
     fun setStateFloating(state: Boolean) {
         return RepositoryProvider.sessionRepository.setStateFloating(state)
+    }
+
+    fun addMusic(music: Music): ResponseLiveData<JsonElement> {
+        return RepositoryProvider.albumRepository.addMusicAlbum(music)
     }
 }

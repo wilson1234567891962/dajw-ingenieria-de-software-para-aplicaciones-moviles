@@ -10,11 +10,12 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.co.base.retrofit.BaseActivity
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ActivitySplashBinding
 
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
