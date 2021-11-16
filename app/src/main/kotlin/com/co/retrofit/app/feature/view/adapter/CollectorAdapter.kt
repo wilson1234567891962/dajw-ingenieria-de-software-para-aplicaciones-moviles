@@ -29,10 +29,13 @@ class CollectorAdapter(private  val fragment: Fragment):
     }
 
     override fun onBindViewHolder(holder: CollectorViewHolder, position: Int) {
+
         holder.viewDataBinding.also {
             it.collector = collectors[position]
 
+
         }
+        holder.headerLabelInitials.text = collectors[position].name.first().toString()
 
     }
 
@@ -43,6 +46,7 @@ class CollectorAdapter(private  val fragment: Fragment):
 
     class CollectorViewHolder( val viewDataBinding: CollectorItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
+        val headerLabelInitials = viewDataBinding.headerLabelInitials
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.collector_item

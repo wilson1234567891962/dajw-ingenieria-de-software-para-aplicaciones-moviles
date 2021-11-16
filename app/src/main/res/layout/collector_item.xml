@@ -25,27 +25,28 @@
 
             <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp
+">
 
             </FrameLayout>
 
             <TextView
                     android:id="@+id/header_label_initials"
                     style="@style/Text.Small"
-                    android:paddingTop="5dp"
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_120sdp"
-                    android:layout_margin="@dimen/_1sdp"
+                    android:layout_height="117dp"
                     android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_1sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
                     android:layout_marginBottom="25dp"
                     android:background="@drawable/circle_item"
-                    android:backgroundTint="@color/black"
-                    android:layout_gravity="center"
+                    android:backgroundTint="@color/dark_gray"
+                    android:gravity="center"
+                    android:text="initial"
                     android:textColor="?android:attr/colorPrimary"
-                    android:textSize="20dp"
-                    android:text="J"
-                    />
+                    android:textSize="30dp" />
 
 
             <TextView
