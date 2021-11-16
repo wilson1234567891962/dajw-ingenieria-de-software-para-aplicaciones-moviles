@@ -3,6 +3,8 @@ package com.co.retrofit.data.model.dto
 import com.google.gson.annotations.SerializedName
 
 class Album (
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("cover")
     val cover: String,
     @SerializedName("name")
