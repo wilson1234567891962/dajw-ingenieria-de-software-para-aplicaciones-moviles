@@ -1,5 +1,6 @@
 package com.co.retrofit.app.feature.view.fragments.album
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,8 +17,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
+import com.co.base.retrofit.extension.hideLoader
+import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumDetailBinding
+import com.co.retrofit.app.feature.view.activities.Maintenance
 import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
 import com.co.retrofit.app.feature.view.adapter.album.DetailAlbumMusicAdapter
 import com.co.retrofit.app.feature.viewmodel.album.AlbumDetailViewModel
@@ -52,7 +56,6 @@ class AlbumDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         albumDetailViewModel.getAlbumSelection()
             .observeSingleData(this, ::callServiceApi)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
         setUpListenerEvent()
         showFloating()
@@ -68,9 +71,9 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun callServiceApi(album: Album){
+        this.activity?.showLoader()
         albumDetailViewModel.getAlbumDetailApi(album)
             .observeSingleData(this, ::showDetailResult)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
 
     }
@@ -83,6 +86,7 @@ class AlbumDetailFragment : Fragment() {
         recordAlbum.text = "Casa discográfica: ${detailAlbum.recordLabel}"
         description.setText(detailAlbum.description)
         this.showListMusic(detailAlbum.music)
+        this.activity?.hideLoader()
     }
 
     private fun showListMusic(music: List<MusicAlbum>) {
@@ -100,12 +104,11 @@ class AlbumDetailFragment : Fragment() {
         albumDetailViewModel.setStateFloating(true)
     }
 
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
-    }
-
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        this.activity?.hideLoader()
+        val intent = Intent(this.activity, Maintenance::class.java)
+        // start your next activity
+        startActivity(intent)
     }
 
 }

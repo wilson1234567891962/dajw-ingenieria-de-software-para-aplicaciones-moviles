@@ -11,12 +11,14 @@ import androidx.navigation.findNavController
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.retrofit.app.R
-import com.co.retrofit.app.databinding.FragmentAddMusicBinding
 import com.co.retrofit.app.feature.view.activities.Maintenance
 import com.co.retrofit.app.feature.viewmodel.album.AlbumMusicViewModel
 import com.co.retrofit.data.model.dto.Music
 import com.google.gson.JsonElement
 import android.content.Intent
+import com.co.base.retrofit.extension.hideLoader
+import com.co.base.retrofit.extension.showLoader
+import com.co.retrofit.app.databinding.FragmentAddMusicBinding
 
 class AlbumMusicFragment : Fragment() {
     private var mBinding: FragmentAddMusicBinding? = null
@@ -59,16 +61,19 @@ class AlbumMusicFragment : Fragment() {
     }
 
     private fun addMusic(view: View) {
+        this.activity?.showLoader()
         albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()))
             .observeData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
     private fun showDetailResult(detailAlbum: JsonElement){
+        this.activity?.hideLoader()
        Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()
     }
 
     private fun observeErrorThrowable(error: Throwable){
+        this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)
         // start your next activity
         startActivity(intent)

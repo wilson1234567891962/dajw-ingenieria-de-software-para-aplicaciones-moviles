@@ -1,5 +1,6 @@
 package com.co.retrofit.app.feature.view.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -36,45 +37,38 @@ class MainActivity : BaseActivity() {
     private fun setUpListenerEvent() {
         viewModel.getStateFloating()
             .observeData(this, ::getStateFloating)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
         btnFloating.setOnClickListener(this::addAlbum)
         getAlbumsApi()
-        getArtistApi()
-    }
-
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
     }
 
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        this?.hideLoader()
+        val intent = Intent(this, Maintenance::class.java)
+        // start your next activity
+        startActivity(intent)
     }
 
     private fun getAlbumsApi() {
         viewModel.getAlbumsApi()
             .observeData(this, ::getAlbums)
-            .observeShowLoading(this, ::showLoader)
-            .observeHideLoading(this, ::hideLoader)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
     private fun getArtistApi() {
         viewModel.getArtistApi()
             .observeData(this, ::getArtist)
-            .observeShowLoading(this, ::showLoader)
-            .observeHideLoading(this, ::hideLoader)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
     private fun getAlbums(albums: List<Album>) {
         viewModel.setAlbumApi(albums)
+        getArtistApi()
     }
 
     private fun getArtist(artist: List<Artist>) {
         viewModel.setArtist(artist)
+        this?.hideLoader()
     }
 
     private fun addAlbum(view: View){
