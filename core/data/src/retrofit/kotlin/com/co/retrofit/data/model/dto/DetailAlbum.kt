@@ -3,11 +3,11 @@ package com.co.retrofit.data.model.dto
 import com.google.gson.annotations.SerializedName
 
 class DetailAlbum (
-    @SerializedName("title")
-    val title: String,
     @SerializedName("name")
-    val name: String,
-    @SerializedName("release")
+    val title: String,
+    @SerializedName("performers")
+    val name: List<Performer>,
+    @SerializedName("releaseDate")
     val release: String,
     @SerializedName("image")
     val image: String,
@@ -17,6 +17,6 @@ class DetailAlbum (
     val recordLabel: String,
     @SerializedName("description")
     val description: String,
-    @SerializedName("music")
+    @SerializedName("tracks")
     val music: List<MusicAlbum>
 )

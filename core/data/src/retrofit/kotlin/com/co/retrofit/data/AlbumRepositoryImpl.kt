@@ -30,16 +30,7 @@ internal class AlbumRepositoryImpl : AlbumRepository {
 
     override fun getDetailAlbumApi(album: Album): ResponseLiveData<DetailAlbum> {
         // TODO: Se debe implementar el llamado del servicio por ahora se deja mockeado, dejar la linea que se tiene comentada 33 y quitar las de abajo
-        // return makeRequest(api.getDetailAlbum())
-        val liveData = MutableResponseLiveData<DetailAlbum>()
-        liveData.postData(DetailAlbum("Amor   Clandestino","Mana", "2011","https://i.pinimg.com/564x/aa/5f/ed/aa5fed7fac61cc8f41d1e79db917a7cd.jpg", "Rock", "Sony Music",
-            "Maná es una banda de rock pop mexicana aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa",
-            arrayListOf(
-                MusicAlbum(" Mariposa Traicionera", "4:40"),
-                MusicAlbum(" Mariposa Traicionera", "4:40"))
-        ))
-        this.detailAlbum.swapSource(liveData)
-        return this.detailAlbum
+        return makeRequest(api.getDetailAlbum(album.id))
     }
 
     override fun addMusicAlbum(music: Music): ResponseLiveData<JsonElement> {

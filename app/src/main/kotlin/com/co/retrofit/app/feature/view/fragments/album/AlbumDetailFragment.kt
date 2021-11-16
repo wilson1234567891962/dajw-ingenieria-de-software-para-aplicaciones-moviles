@@ -71,7 +71,7 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun callServiceApi(album: Album){
-        this.activity?.showLoader()
+//        this.activity?.showLoader()
         albumDetailViewModel.getAlbumDetailApi(album)
             .observeSingleData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
@@ -79,14 +79,14 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun showDetailResult(detailAlbum: DetailAlbum){
-        titleAlbum.text = "${detailAlbum.name}"
-        artistAlbum.text = "Artista: ${detailAlbum.name}"
+        titleAlbum.text = "${detailAlbum.title}"
+        artistAlbum.text = "Artista: ${detailAlbum.name.first().name}"
         releaseAlbum.text = "Lanzamiento: ${detailAlbum.release}"
         genereAlbum.text = "Genero: ${detailAlbum.genre}"
         recordAlbum.text = "Casa discográfica: ${detailAlbum.recordLabel}"
         description.setText(detailAlbum.description)
         this.showListMusic(detailAlbum.music)
-        this.activity?.hideLoader()
+//        this.activity?.hideLoader()
     }
 
     private fun showListMusic(music: List<MusicAlbum>) {
@@ -105,7 +105,7 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun observeErrorThrowable(error: Throwable){
-        this.activity?.hideLoader()
+ //       this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)
         // start your next activity
         startActivity(intent)

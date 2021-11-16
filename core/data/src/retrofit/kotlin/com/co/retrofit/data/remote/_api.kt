@@ -7,6 +7,7 @@ import com.co.retrofit.data.model.dto.DetailAlbum
 import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface Api {
 
@@ -16,8 +17,8 @@ interface Api {
     @GET("/bands")
     fun getArtist(): Call<List<Artist>>
 
-    @GET("/detail")
-    fun getDetailAlbum(): Call<DetailAlbum>
+    @GET("/albums/{id}")
+    fun getDetailAlbum(@Path("id") id: Int): Call<DetailAlbum>
 
     @GET("/addAlbum")
     fun addAlbum(): Call<JsonElement>
