@@ -1,36 +1,32 @@
 package com.co.retrofit.app.feature.view.fragments.album
-import android.content.Context
+
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.retrofit.app.R
-import com.co.retrofit.app.databinding.FragmentAddMusicBinding
-import com.co.retrofit.app.databinding.FragmentAlbumDetailBinding
-import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
-import com.co.retrofit.app.feature.view.adapter.album.DetailAlbumMusicAdapter
-import com.co.retrofit.app.feature.viewmodel.album.AlbumDetailViewModel
+import com.co.retrofit.app.feature.view.activities.Maintenance
 import com.co.retrofit.app.feature.viewmodel.album.AlbumMusicViewModel
-import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.DetailAlbum
-import com.co.retrofit.data.model.dto.MusicAlbum
-
+import com.co.retrofit.data.model.dto.Music
+import com.google.gson.JsonElement
+import android.content.Intent
+import com.co.base.retrofit.extension.hideLoader
+import com.co.base.retrofit.extension.showLoader
+import com.co.retrofit.app.databinding.FragmentAddMusicBinding
 
 class AlbumMusicFragment : Fragment() {
     private var mBinding: FragmentAddMusicBinding? = null
     private val back: View by viewProvider(R.id.back_add_music)
+    private val btnCancel: View by viewProvider(R.id.btn_cancelar)
+    private val btnAccept: View by viewProvider(R.id.btn_aceptar)
+    private val edtName: EditText by viewProvider(R.id.text_name)
+    private val edtDuration: EditText by viewProvider(R.id.text_duration)
     private val albumMusicViewModel by viewModelProvider(AlbumMusicViewModel::class)
 
     override fun onCreateView(
@@ -55,6 +51,8 @@ class AlbumMusicFragment : Fragment() {
 
     private fun setUpListenerEvent() {
         back.setOnClickListener(this::backPressed)
+        btnCancel.setOnClickListener(this::backPressed)
+        btnAccept.setOnClickListener(this::addMusic)
     }
 
     private fun backPressed(view: View) {
@@ -62,12 +60,23 @@ class AlbumMusicFragment : Fragment() {
         navController?.navigate(R.id.navigation_detail_album)
     }
 
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
+    private fun addMusic(view: View) {
+        this.activity?.showLoader()
+        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()))
+            .observeData(this, ::showDetailResult)
+            .observeErrorThrowable(this, ::observeErrorThrowable)
+    }
+
+    private fun showDetailResult(detailAlbum: JsonElement){
+        this.activity?.hideLoader()
+       Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()
     }
 
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        this.activity?.hideLoader()
+        val intent = Intent(this.activity, Maintenance::class.java)
+        // start your next activity
+        startActivity(intent)
     }
 
 }

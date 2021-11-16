@@ -4,11 +4,9 @@ import androidx.annotation.RestrictTo
 import com.co.retrofit.data.livedata.MediatorResponseLiveData
 import com.co.retrofit.data.livedata.MutableResponseLiveData
 import com.co.retrofit.data.livedata.ResponseLiveData
-import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.DetailAlbum
-import com.co.retrofit.data.model.dto.MusicAlbum
-import com.co.retrofit.data.model.dto.TestDto
+import com.co.retrofit.data.model.dto.*
 import com.co.retrofit.data.remote.api
+import com.google.gson.JsonElement
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 internal class AlbumRepositoryImpl : AlbumRepository {
@@ -42,6 +40,10 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         ))
         this.detailAlbum.swapSource(liveData)
         return this.detailAlbum
+    }
+
+    override fun addMusicAlbum(music: Music): ResponseLiveData<JsonElement> {
+        return makeRequest(api.addAlbum())
     }
 
     override fun setAlbum(albums: List<Album>): Unit {
