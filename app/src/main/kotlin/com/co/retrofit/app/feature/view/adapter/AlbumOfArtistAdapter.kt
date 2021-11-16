@@ -3,13 +3,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.AlbumOfArtistItemBinding
 import com.co.retrofit.app.feature.model.dto.Album
 
-class   AlbumOfArtistAdapter : RecyclerView.Adapter<AlbumOfArtistAdapter.AlbumOfArtistViewHolder>(){
+class   AlbumOfArtistAdapter(private val fragment: Fragment) : RecyclerView.Adapter<AlbumOfArtistAdapter.AlbumOfArtistViewHolder>(){
 
     var albums_of_artist :List<Album> = emptyList()
         set(value) {
@@ -27,7 +30,16 @@ class   AlbumOfArtistAdapter : RecyclerView.Adapter<AlbumOfArtistAdapter.AlbumOf
     }
 
     override fun onBindViewHolder(holder: AlbumOfArtistViewHolder, position: Int) {
+
         holder.viewDataBinding.also {
+
+            val artistImg = albums_of_artist[position]
+
+            Glide.with(fragment)
+                .load(artistImg.cover)
+                .apply(RequestOptions.circleCropTransform())
+                .into(holder.ivDishImage)
+
             it.albumOfArtist = albums_of_artist[position]
         }
     }
@@ -39,6 +51,7 @@ class   AlbumOfArtistAdapter : RecyclerView.Adapter<AlbumOfArtistAdapter.AlbumOf
 
     class AlbumOfArtistViewHolder(val viewDataBinding: AlbumOfArtistItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
+        val ivDishImage = viewDataBinding.ivDishImage
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.album_of_artist_item

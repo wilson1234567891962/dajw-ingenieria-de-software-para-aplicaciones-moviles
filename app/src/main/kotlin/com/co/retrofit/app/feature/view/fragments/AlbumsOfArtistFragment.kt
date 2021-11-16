@@ -39,7 +39,7 @@ class AlbumsOfArtistFragment : Fragment() {
     ): View? {
         _binding = FragmentAlbumsOfArtistBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = AlbumOfArtistAdapter()
+        viewModelAdapter = AlbumOfArtistAdapter(this@AlbumsOfArtistFragment)
         return view
     }
 
