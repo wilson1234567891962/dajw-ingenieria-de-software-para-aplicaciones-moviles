@@ -2,9 +2,11 @@ package com.co.retrofit.app.feature.viewmodel
 
 import android.app.Application
 import android.util.Log
+import android.widget.TextView
 import androidx.lifecycle.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
@@ -38,7 +40,9 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
 
     init {
         refreshDataFromNetwork()
+
     }
+
 
 
     private fun refreshDataFromNetwork() {

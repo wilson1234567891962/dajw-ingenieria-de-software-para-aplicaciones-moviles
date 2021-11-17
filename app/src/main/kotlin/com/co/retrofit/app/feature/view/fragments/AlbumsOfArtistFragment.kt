@@ -59,7 +59,12 @@ class AlbumsOfArtistFragment : Fragment() {
         activity.actionBar?.title = getString(R.string.title_albums_of_artist)
 
         val args: AlbumsOfArtistFragmentArgs by navArgs()
+
+        activity.findViewById<TextView>(R.id.artist_name).apply{text=args.artist.name }
+        activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
+
         Log.d("Args", args.artistId.toString())
+
         viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application, args.artistId, args.artist)).get(AlbumsOfArtistViewModel::class.java)
         viewModel.albumsOfArtist.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
