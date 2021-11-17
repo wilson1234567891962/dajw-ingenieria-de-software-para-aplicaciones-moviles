@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 import android.widget.Toast
@@ -44,6 +45,7 @@ class AlbumsOfArtistFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         recyclerView = binding.albumsOfArtistRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
@@ -58,7 +60,7 @@ class AlbumsOfArtistFragment : Fragment() {
 
         val args: AlbumsOfArtistFragmentArgs by navArgs()
         Log.d("Args", args.artistId.toString())
-        viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application, args.artistId)).get(AlbumsOfArtistViewModel::class.java)
+        viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application, args.artistId, args.artist)).get(AlbumsOfArtistViewModel::class.java)
         viewModel.albumsOfArtist.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
                 viewModelAdapter!!.albums_of_artist = this

@@ -44,7 +44,7 @@ class ArtistAdapter(private val fragment: Fragment):
         }
 
         holder.viewDataBinding.root.setOnClickListener {
-            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].artistId)
+            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].artistId, artists[position])
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }

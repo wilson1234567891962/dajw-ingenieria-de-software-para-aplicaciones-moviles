@@ -3,10 +3,14 @@ package com.co.retrofit.app.feature.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.feature.model.dto.Album
+import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
+import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
 
-class AlbumsOfArtistViewModel (application: Application, artistId: Int) :  AndroidViewModel(application){
+class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: Artist) :  AndroidViewModel(application){
 
     private val albumsOfArtistRepository = AlbumsOfArtistRepository(application)
 
@@ -26,10 +30,16 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int) :  Andro
         get() = _isNetworkErrorShown
 
     val id:Int = artistId
+    var artist :Artist = artist
+        set(value) {
+            field = value
+        }
+
 
     init {
         refreshDataFromNetwork()
     }
+
 
     private fun refreshDataFromNetwork() {
         albumsOfArtistRepository.refreshData(id, {
@@ -46,11 +56,11 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int) :  Andro
         _isNetworkErrorShown.value = true
     }
 
-    class Factory(val app: Application, val artistId: Int) : ViewModelProvider.Factory {
+    class Factory(val app: Application, val artistId: Int, val artist: Artist) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AlbumsOfArtistViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return AlbumsOfArtistViewModel(app, artistId) as T
+                return AlbumsOfArtistViewModel(app, artistId, artist) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

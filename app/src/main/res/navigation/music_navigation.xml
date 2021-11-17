@@ -39,6 +39,9 @@
             <argument
             android:name="artistId"
             app:argType="integer" />
+        <argument
+                android:name="artist"
+                app:argType="com.co.retrofit.app.feature.model.dto.Artist" />
     </fragment>
 
 </navigation>
