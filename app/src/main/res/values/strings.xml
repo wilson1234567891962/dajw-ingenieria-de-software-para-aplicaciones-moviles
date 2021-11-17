@@ -14,4 +14,7 @@
     <string name="label_album_added_yet">No hay albumes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion">Descripcion:</string>
+    <string name="fecha_de_creacion">Fecha de creacion:</string>
+    <string name="albumes">Albumes</string>
 </resources>

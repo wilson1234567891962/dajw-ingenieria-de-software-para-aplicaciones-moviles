@@ -25,6 +25,9 @@ import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumsOfArtistViewModel
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 
 
 /**
@@ -64,8 +67,11 @@ class AlbumsOfArtistFragment : Fragment() {
 
         val args: AlbumsOfArtistFragmentArgs by navArgs()
 
+        //val date = LocalDate.parse(args.artist.creationDate, DateTimeFormatter.ISO_DATE)
+
         activity.findViewById<TextView>(R.id.artist_name).apply{text=args.artist.name }
         activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
+        activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.creationDate}
         Glide.with(activity)
             .load(args.artist.image)
             .apply(RequestOptions.circleCropTransform())
