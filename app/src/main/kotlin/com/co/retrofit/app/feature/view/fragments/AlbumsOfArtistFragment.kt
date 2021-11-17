@@ -6,15 +6,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
@@ -62,6 +66,10 @@ class AlbumsOfArtistFragment : Fragment() {
 
         activity.findViewById<TextView>(R.id.artist_name).apply{text=args.artist.name }
         activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
+        Glide.with(activity)
+            .load(args.artist.image)
+            .apply(RequestOptions.circleCropTransform())
+            .into(activity.findViewById<ImageView>(R.id.artist_image))
 
         Log.d("Args", args.artistId.toString())
 

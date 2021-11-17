@@ -18,6 +18,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+        <ImageView
+                android:id="@+id/artist_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_1sdp"
+                android:contentDescription="@string/image_contentDescription"
+                tools:src="@mipmap/ic_launcher"
+                android:paddingTop="5dp"/>
+
         <TextView
                 android:id="@+id/artist_name"
                 android:layout_width="match_parent"
@@ -43,6 +52,8 @@
                 android:id="@+id/albumsOfArtistRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/album_of_artist_item"></androidx.recyclerview.widget.RecyclerView>
+                tools:listitem="@layout/album_of_artist_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 </layout>

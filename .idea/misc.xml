@@ -8,7 +8,7 @@
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/artis_detail_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/artist_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album.xml" value="0.2953125" />
-        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_albums_of_artist.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_albums_of_artist.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_artist_detail.xml" value="0.15" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_artist_list.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USUARIO/Desktop/Angelica2/Maestria/moviles/pruebasSrpint1/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_collector.xml" value="0.15" />
@@ -19,7 +19,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
