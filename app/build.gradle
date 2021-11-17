@@ -7,6 +7,8 @@ plugins {
     id 'kotlin-parcelize'
 }
 apply plugin: "kotlinx-serialization"
+apply plugin: 'kotlin-kapt'
+
 android {
     // Gradle automatically adds 'android.test.runner' as a dependency.
     useLibrary 'android.test.runner'
@@ -110,6 +112,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    // Room components
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

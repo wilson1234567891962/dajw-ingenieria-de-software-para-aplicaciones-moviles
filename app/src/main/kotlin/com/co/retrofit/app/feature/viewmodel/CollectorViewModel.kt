@@ -3,6 +3,7 @@ package com.co.retrofit.app.feature.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.app.feature.model.dto.Collector
 import com.co.retrofit.app.feature.repositories.CollectorRepository
 import com.co.retrofit.data.RepositoryProvider
@@ -12,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class CollectorViewModel(application: Application)  :  AndroidViewModel(application) {
 
-    private val collectorRepository = CollectorRepository(application)
+    private val collectorRepository = CollectorRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).collectorsDao())
 
     private val _collectors = MutableLiveData<List<Collector>>()
 

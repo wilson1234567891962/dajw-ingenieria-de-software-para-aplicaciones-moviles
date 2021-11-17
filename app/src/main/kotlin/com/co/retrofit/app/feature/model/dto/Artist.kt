@@ -1,10 +1,12 @@
 package com.co.retrofit.app.feature.model.dto
 
-import kotlinx.serialization.Serializable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Serializable
+
+@Entity(tableName = "artists_table")
 data class Artist(
-    val artistId:Int,
+    @PrimaryKey val artistId:Int,
     val name:String,
     val image:String,
     val creationDate:String,

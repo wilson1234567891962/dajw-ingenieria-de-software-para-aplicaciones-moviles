@@ -3,6 +3,7 @@ package com.co.retrofit.app.feature.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.ArtistRepository
 import com.co.retrofit.data.RepositoryProvider
@@ -13,7 +14,7 @@ import kotlinx.coroutines.withContext
 
 class ArtistViewModel(application: Application) :  AndroidViewModel(application) {
 
-    private val artistRepository = ArtistRepository(application)
+    private val artistRepository = ArtistRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).artistsDao())
 
     private val _artists = MutableLiveData<List<Artist>>()
 

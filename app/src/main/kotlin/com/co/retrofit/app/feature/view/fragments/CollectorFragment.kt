@@ -15,6 +15,7 @@ import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentArtistListBinding
 import com.co.retrofit.app.databinding.FragmentCollectorBinding
+import com.co.retrofit.app.feature.RetrofitApplication
 import com.co.retrofit.app.feature.model.dto.Collector
 import com.co.retrofit.app.feature.view.adapter.CollectorAdapter
 
@@ -65,7 +66,7 @@ class CollectorFragment: Fragment(R.layout.fragment_collector) {
             "You can only access the viewModel after onActivityCreated()"
         }
         activity.actionBar?.title = getString(R.string.title_artist)
-        viewModel = ViewModelProvider(this, CollectorViewModel.Factory(activity.application)).get(
+        viewModel = ViewModelProvider(this, CollectorViewModel.Factory(activity.application as RetrofitApplication)).get(
             CollectorViewModel::class.java)
         //this.activity?.showLoader()
         viewModel.collectors.observe(viewLifecycleOwner, Observer<List<Collector>> {
