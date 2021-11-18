@@ -76,7 +76,6 @@ dependencies {
     // Core Dependencies
     implementation project(":core:data")
     implementation project(":core:base")
-    implementation project(":core:analytics")
 
 
     // View components
