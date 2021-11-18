@@ -1,6 +1,4 @@
 # dajw-ingenieria-de-software-para-aplicaciones-moviles
-
-
 # Vinyls
 
 Este proyecto contiene el codigo fuente de la aplicacion de android
