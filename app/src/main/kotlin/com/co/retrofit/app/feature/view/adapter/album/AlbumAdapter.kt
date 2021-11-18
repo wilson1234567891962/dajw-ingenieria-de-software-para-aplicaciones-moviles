@@ -11,7 +11,6 @@ import com.co.retrofit.data.model.dto.Album
 
 
 class AlbumAdapter(private val fragment: Fragment,
-                   private val items: List<Album>,
                    private val listener: (Album) -> Unit) :
     RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
 

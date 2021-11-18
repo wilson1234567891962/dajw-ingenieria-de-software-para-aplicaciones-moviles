@@ -20,11 +20,11 @@ class MainViewModel : ViewModel() {
         return RepositoryProvider.sessionRepository.getStateFloating()
     }
 
-    fun setAlbumApi(albums: List<Album>): Unit {
+    fun setAlbumApi(albums: List<Album>) {
         return RepositoryProvider.albumRepository.setAlbum(albums)
     }
 
-    fun setArtist(artist: List<Artist>): Unit {
+    fun setArtist(artist: List<Artist>) {
         return RepositoryProvider.artistRepository.setArtist(artist)
     }
 }

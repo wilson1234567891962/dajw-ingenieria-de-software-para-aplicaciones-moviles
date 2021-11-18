@@ -28,6 +28,12 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         return makeRequest(api.getAlbums())
     }
 
+    override fun setAlbum(albums: List<Album>): Unit {
+        val liveData = MutableResponseLiveData<List<Album>>()
+        liveData.postData(albums)
+        this.albums.swapSource(liveData)
+    }
+
     override fun getDetailAlbumApi(album: Album): ResponseLiveData<DetailAlbum> {
         // TODO: Se debe implementar el llamado del servicio por ahora se deja mockeado, dejar la linea que se tiene comentada 33 y quitar las de abajo
         return makeRequest(api.getDetailAlbum(album.id))
@@ -37,15 +43,9 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         return makeRequest(api.addAlbum())
     }
 
-    override fun setAlbum(albums: List<Album>): Unit {
-        val liveData = MutableResponseLiveData<List<Album>>()
-        liveData.postData(albums)
-        this.albums.swapSource(liveData)
-    }
-
-    override fun saveSelectionAlbumItem(albums: Album): Unit {
+    override fun saveSelectionAlbumItem(albumItems: Album): Unit {
         val liveData = MutableResponseLiveData<Album>()
-        liveData.postData(albums)
+        liveData.postData(albumItems)
         this.salectionAlbum.swapSource(liveData)
     }
 }

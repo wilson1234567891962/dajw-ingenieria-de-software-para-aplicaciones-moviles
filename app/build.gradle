@@ -76,7 +76,6 @@ dependencies {
     // Core Dependencies
     implementation project(":core:data")
     implementation project(":core:base")
-    implementation project(":core:analytics")
 
 
     // View components
@@ -87,7 +86,6 @@ dependencies {
 
     // Image loading library
     // For more detail visit the link: https://github.com/bumptech/glide
-    implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
