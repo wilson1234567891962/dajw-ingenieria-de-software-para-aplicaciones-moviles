@@ -12,6 +12,9 @@ import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import org.json.JSONArray
 import org.json.JSONObject
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 
 class NetworkServiceAdapter constructor(context: Context) {
@@ -61,21 +64,22 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
-    fun getAlbumsOfArtist(artistId:Int, onComplete:(resp:List<Album>)->Unit, onError: (error:VolleyError)->Unit) {
+    suspend fun getAlbumsOfArtist(artistId:Int) = suspendCoroutine<List<Album>> { cont ->
+
         requestQueue.add(getRequest("bands/$artistId/albums",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
-                val list = mutableListOf<Album>()
-                var item: JSONObject? = null
+                var list = mutableListOf<Album>()
                 for (i in 0 until resp.length()) {
-                    item = resp.getJSONObject(i)
+                    val item = resp.getJSONObject(i)
+                    val album = Album(name = item.getString("name"), genre = item.getString("genre"), cover = item.getString("cover"))
                     Log.d("Response", item.toString())
-                    list.add(i, Album(name = item.getString("name"), genre = item.getString("genre"), cover = item.getString("cover")))
+                    list.add(i, album)
                 }
-                onComplete(list)
+                cont.resume(list)
             },
             Response.ErrorListener {
-                onError(it)
+                cont.resumeWithException(it)
             }))
     }
 

@@ -11,6 +11,9 @@ import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
 import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: Artist) :  AndroidViewModel(application){
 
@@ -43,17 +46,20 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
 
     }
 
-
-
     private fun refreshDataFromNetwork() {
-        albumsOfArtistRepository.refreshData(id, {
-            _albumsOfArtist.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        },{
-            Log.d("Error", it.toString())
+        try {
+            viewModelScope.launch (Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = albumsOfArtistRepository.refreshData(id)
+                    _albumsOfArtist.postValue(data)
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
             _eventNetworkError.value = true
-        })
+        }
     }
 
     fun onNetworkErrorShown() {
