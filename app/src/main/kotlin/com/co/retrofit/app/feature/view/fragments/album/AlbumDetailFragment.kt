@@ -64,14 +64,13 @@ class AlbumDetailFragment : Fragment() {
     private fun setUpListenerEvent() {
         back.setOnClickListener(this::backPressed)
     }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun backPressed(view: View) {
         val navController = this.activity?.findNavController(R.id.nav_host_fragment)
         navController?.navigate(R.id.navigation_album)
     }
 
     private fun callServiceApi(album: Album){
-//        this.activity?.showLoader()
         albumDetailViewModel.getAlbumDetailApi(album)
             .observeSingleData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
@@ -103,11 +102,9 @@ class AlbumDetailFragment : Fragment() {
     private fun showFloating() {
         albumDetailViewModel.setStateFloating(true)
     }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
- //       this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)
-        // start your next activity
         startActivity(intent)
     }
 

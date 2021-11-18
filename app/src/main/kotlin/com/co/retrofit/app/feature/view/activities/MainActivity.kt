@@ -42,8 +42,9 @@ class MainActivity : BaseActivity() {
         getAlbumsApi()
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        this?.hideLoader()
+        this.hideLoader()
         val intent = Intent(this, Maintenance::class.java)
         // start your next activity
         startActivity(intent)
@@ -68,13 +69,14 @@ class MainActivity : BaseActivity() {
 
     private fun getArtist(artist: List<Artist>) {
         viewModel.setArtist(artist)
-        this?.hideLoader()
+        this.hideLoader()
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun addAlbum(view: View){
         val navController = findNavController(R.id.nav_host_fragment)
 
-        if(navController?.currentDestination?.id == R.id.navigation_detail_album){
+        if(navController.currentDestination?.id == R.id.navigation_detail_album){
             navController.navigate(R.id.navigation_add_music)
             return
         }

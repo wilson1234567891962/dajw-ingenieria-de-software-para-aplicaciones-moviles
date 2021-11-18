@@ -22,6 +22,7 @@ class Maintenance : AppCompatActivity() {
         btnRestart.setOnClickListener(this::restartApplication)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun restartApplication(view: View) {
         val pm = this.packageManager
         val intent = pm.getLaunchIntentForPackage(this.packageName)

@@ -40,7 +40,6 @@ class ArtistAdapter(private val fragment: Fragment):
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.ivDishImage)
         }
-        // holder.viewDataBinding.root.setOnClickListener {}
     }
 
     override fun getItemCount(): Int {

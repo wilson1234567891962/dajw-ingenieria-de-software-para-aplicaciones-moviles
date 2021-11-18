@@ -54,24 +54,25 @@ class AlbumMusicFragment : Fragment() {
         btnCancel.setOnClickListener(this::backPressed)
         btnAccept.setOnClickListener(this::addMusic)
     }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun backPressed(view: View) {
         val navController = this.activity?.findNavController(R.id.nav_host_fragment)
         navController?.navigate(R.id.navigation_detail_album)
     }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun addMusic(view: View) {
         this.activity?.showLoader()
         albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()))
             .observeData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun showDetailResult(detailAlbum: JsonElement){
         this.activity?.hideLoader()
        Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
         this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)

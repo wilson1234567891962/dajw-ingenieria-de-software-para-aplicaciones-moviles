@@ -1,5 +1,6 @@
 package com.co.retrofit.app.feature.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ import com.co.base.retrofit.extension.hideLoader
 import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentArtistListBinding
+import com.co.retrofit.app.feature.view.activities.Maintenance
 import com.co.retrofit.data.model.dto.Artist
 import com.co.retrofit.app.feature.view.adapter.ArtistAdapter
 import com.co.retrofit.app.feature.viewmodel.ArtistViewModel
@@ -73,7 +75,6 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
     private fun getArtist() {
         artistViewModel.getArtistCache()
             .observeSingleData(this, ::processArtist)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
@@ -82,13 +83,10 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
             viewModelAdapter!!.artists = artist
         }
     }
-
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
-    }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        val intent = Intent(this.activity, Maintenance::class.java)
+        startActivity(intent)
     }
 
     private fun showFloating() {

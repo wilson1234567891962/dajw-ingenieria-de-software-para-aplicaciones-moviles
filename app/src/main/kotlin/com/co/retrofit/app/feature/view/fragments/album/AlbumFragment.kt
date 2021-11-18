@@ -1,4 +1,5 @@
 package com.co.retrofit.app.feature.view.fragments.album
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumBinding
+import com.co.retrofit.app.feature.view.activities.Maintenance
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.album.AlbumAdapter
 import com.co.retrofit.app.feature.viewmodel.album.AlbumViewModel
@@ -42,7 +44,6 @@ class AlbumFragment : Fragment() {
 
         albumViewModel.getAlbumCache()
             .observeSingleData(this, ::processAlbum)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
          showFloating()
     }
@@ -52,7 +53,7 @@ class AlbumFragment : Fragment() {
         mBinding!!.rvAlbumList.layoutManager =
             GridLayoutManager(requireActivity(), 2)
         // Adapter class is initialized and list is passed in the param.
-        adapter = AlbumAdapter(this@AlbumFragment, albums) { item ->
+        adapter = AlbumAdapter(this@AlbumFragment) { item ->
             this.processItemAdapter(item);
         };
         // adapter instance is set to the recyclerview to inflate the items.
@@ -75,15 +76,11 @@ class AlbumFragment : Fragment() {
         val navController = this.activity?.findNavController(R.id.nav_host_fragment)
         navController?.navigate(R.id.navigation_detail_album)
     }
-
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
-    }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        val intent = Intent(this.activity, Maintenance::class.java)
+        startActivity(intent)
     }
-
 
     private fun showFloating() {
         albumViewModel.setStateFloating(true)
