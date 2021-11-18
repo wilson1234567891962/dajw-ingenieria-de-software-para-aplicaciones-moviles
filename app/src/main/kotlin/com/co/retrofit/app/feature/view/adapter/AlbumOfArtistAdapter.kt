@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.AlbumOfArtistItemBinding
@@ -37,7 +38,7 @@ class   AlbumOfArtistAdapter(private val fragment: Fragment) : RecyclerView.Adap
 
             Glide.with(fragment)
                 .load(artistImg.cover)
-                .apply(RequestOptions.circleCropTransform())
+                .apply(RequestOptions().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
                 .into(holder.ivDishImage)
 
             it.albumOfArtist = albums_of_artist[position]

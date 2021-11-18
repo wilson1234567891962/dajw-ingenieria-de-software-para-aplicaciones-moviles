@@ -104,7 +104,6 @@
                 android:text="@string/txt_no_comments"
                 android:visibility="gone" />
 
-
         <androidx.recyclerview.widget.RecyclerView
 
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

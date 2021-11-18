@@ -18,6 +18,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
@@ -74,7 +75,7 @@ class AlbumsOfArtistFragment : Fragment() {
         activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.creationDate}
         Glide.with(activity)
             .load(args.artist.image)
-            .apply(RequestOptions.circleCropTransform())
+            .apply(RequestOptions().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
             .into(activity.findViewById<ImageView>(R.id.artist_image))
 
         Log.d("Args", args.artistId.toString())
