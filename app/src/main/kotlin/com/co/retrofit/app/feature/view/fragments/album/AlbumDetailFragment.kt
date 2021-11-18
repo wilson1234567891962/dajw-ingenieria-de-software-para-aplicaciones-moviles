@@ -54,6 +54,13 @@ class AlbumDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Set the LayoutManager that this RecyclerView will use.
+        mBinding!!.rvAlbumDetailList.layoutManager =
+            GridLayoutManager(requireActivity(), 1)
+        // Adapter class is initialized and list is passed in the param.
+        adapterMusic = DetailAlbumMusicAdapter(this@AlbumDetailFragment)
+        // adapter instance is set to the recyclerview to inflate the items.
+        mBinding!!.rvAlbumDetailList.adapter = adapterMusic
         albumDetailViewModel.getAlbumSelection()
             .observeSingleData(this, ::callServiceApi)
             .observeErrorThrowable(this, ::observeErrorThrowable)
@@ -89,13 +96,6 @@ class AlbumDetailFragment : Fragment() {
     }
 
     private fun showListMusic(music: List<MusicAlbum>) {
-        // Set the LayoutManager that this RecyclerView will use.
-        mBinding!!.rvAlbumDetailList.layoutManager =
-            GridLayoutManager(requireActivity(), 1)
-        // Adapter class is initialized and list is passed in the param.
-        adapterMusic = DetailAlbumMusicAdapter(this@AlbumDetailFragment)
-        // adapter instance is set to the recyclerview to inflate the items.
-        mBinding!!.rvAlbumDetailList.adapter = adapterMusic
         adapterMusic.albumMusicList(music)
     }
 

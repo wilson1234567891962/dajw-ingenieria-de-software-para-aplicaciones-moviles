@@ -42,13 +42,6 @@ class AlbumFragment : Fragment() {
          * The onChanged() method fires when the observed data changes and the activity is in the foreground.
          */
 
-        albumViewModel.getAlbumCache()
-            .observeSingleData(this, ::processAlbum)
-            .observeErrorThrowable(this, ::observeErrorThrowable)
-         showFloating()
-    }
-
-    private fun processAlbum(albums: List<Album>) {
         // Set the LayoutManager that this RecyclerView will use.
         mBinding!!.rvAlbumList.layoutManager =
             GridLayoutManager(requireActivity(), 2)
@@ -59,6 +52,13 @@ class AlbumFragment : Fragment() {
         // adapter instance is set to the recyclerview to inflate the items.
         mBinding!!.rvAlbumList.adapter = adapter
 
+        albumViewModel.getAlbumCache()
+            .observeSingleData(this, ::processAlbum)
+            .observeErrorThrowable(this, ::observeErrorThrowable)
+         showFloating()
+    }
+
+    private fun processAlbum(albums: List<Album>) {
         if (albums.isNotEmpty()) {
             mBinding!!.rvAlbumList.visibility = View.VISIBLE
             mBinding!!.tvAlbumAvailable.visibility = View.GONE
