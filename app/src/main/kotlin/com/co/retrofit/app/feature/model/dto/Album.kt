@@ -1,8 +1,10 @@
 package com.co.retrofit.app.feature.model.dto
 
+import kotlinx.serialization.Serializable
 import org.json.JSONArray
 
-class Album (
+@Serializable
+data class Album (
     val cover: String,
     val name: String,
     val genre: String

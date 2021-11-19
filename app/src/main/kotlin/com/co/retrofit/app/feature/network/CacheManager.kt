@@ -1,6 +1,7 @@
 package com.co.retrofit.app.feature.network
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.co.retrofit.app.feature.model.dto.Album
 
 
@@ -13,6 +14,14 @@ class CacheManager(context: Context) {
                     instance = it
                 }
             }
+
+        const val APP_SPREFS = "com.co.retrofit.app"
+        const val ARTISTS_SPREFS = "com.co.retrofit.artists"
+        fun getPrefs(context: Context, name:String): SharedPreferences {
+            return context.getSharedPreferences(name,
+                Context.MODE_PRIVATE
+            )
+        }
     }
     private var albumsOfArtist: HashMap<Int, List<Album>> = hashMapOf()
     fun addAlbumsOfArtist(artistId: Int, albumOfArtist: List<Album>){
@@ -23,4 +32,5 @@ class CacheManager(context: Context) {
     fun getAlbumsOfArtist(artistId: Int) : List<Album>{
         return if (albumsOfArtist.containsKey(artistId)) albumsOfArtist[artistId]!! else listOf<Album>()
     }
+
 }
