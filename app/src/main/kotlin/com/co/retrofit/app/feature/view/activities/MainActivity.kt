@@ -1,7 +1,7 @@
 package com.co.retrofit.app.feature.view.activities
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
@@ -9,11 +9,10 @@ import com.co.base.retrofit.BaseActivity
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.base.retrofit.extension.hideLoader
-import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
-import com.co.retrofit.data.model.dto.TestDto
 import androidx.navigation.ui.setupWithNavController
 import com.co.retrofit.app.feature.viewmodel.MainViewModel
+import com.co.retrofit.data.model.dto.Album
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : BaseActivity() {
@@ -34,42 +33,42 @@ class MainActivity : BaseActivity() {
     private fun setUpListenerEvent() {
         viewModel.getStateFloating()
             .observeData(this, ::getStateFloating)
-            .observeError(this, ::observeErrorThrowable)
             .observeErrorThrowable(this, ::observeErrorThrowable)
         btnFloating.setOnClickListener(this::addAlbum)
+        getAlbumsApi()
     }
 
-    private fun observeErrorThrowable(){
-        Log.d("Fue resultado exitoso", "")
-    }
-
+    @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        Log.d("Fue resultado exitoso", error.toString())
+        this.hideLoader()
+        val intent = Intent(this, Maintenance::class.java)
+        // start your next activity
+        startActivity(intent)
     }
 
-    private fun setUpListener(){
-
-    }
-
-    private fun setIcon() {
-
-    }
-
-    private fun clickTest(view: View) {
-        showLoader()
-        viewModel.getExampleTest()
-            .observeData(this, ::showResult)
-            .observeError(this, ::observeErrorThrowable)
+    private fun getAlbumsApi() {
+        viewModel.getAlbumsApi()
+            .observeData(this, ::getAlbums)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
-    private fun showResult(test: TestDto) {
-         hideLoader()
-         Log.d("Fue resultado exitoso", "Resultado en proceso")
+
+
+    private fun getAlbums(albums: List<Album>) {
+        viewModel.setAlbumApi(albums)
+
     }
 
+
+
+    @Suppress("UNUSED_PARAMETER")
     private fun addAlbum(view: View){
         val navController = findNavController(R.id.nav_host_fragment)
+
+        if(navController.currentDestination?.id == R.id.navigation_detail_album){
+            navController.navigate(R.id.navigation_add_music)
+            return
+        }
         navController.navigate(R.id.fragment_album_creation)
     }
 

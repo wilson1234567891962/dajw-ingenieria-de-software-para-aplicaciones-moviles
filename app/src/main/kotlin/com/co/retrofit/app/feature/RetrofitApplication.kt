@@ -1,7 +1,6 @@
 package com.co.retrofit.app.feature
 
 import android.app.Application
-import com.co.analytics.setupFireBase
 import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.data.setupBackend
 
@@ -14,9 +13,6 @@ class RetrofitApplication : Application() {
 
         // setup retrofit
         setupBackend()
-
-        // setup Analytics
-        setupFireBase()
     }
 
 }

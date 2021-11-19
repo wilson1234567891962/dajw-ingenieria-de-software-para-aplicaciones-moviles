@@ -1,6 +1,7 @@
 package com.co.retrofit.data.livedata
 
 import com.co.retrofit.data.model.DataResult
+import com.co.retrofit.data.model.type.ERROR
 import com.co.retrofit.data.model.type.LOADING
 import com.co.retrofit.data.model.type.SUCCESS
 
@@ -11,7 +12,7 @@ class MutableResponseLiveData<T> : ResponseLiveData<T>() {
     }
 
     fun postError(error: Throwable) {
-        postValue(DataResult(null, error, com.co.retrofit.data.model.type.ERROR))
+        postValue(DataResult(null, error, ERROR))
     }
 
     fun postData(data: T) {
