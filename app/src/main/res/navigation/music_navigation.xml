@@ -8,19 +8,40 @@
             android:id="@+id/navigation_album"
             android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
             android:label="@string/title_home"
-            tools:layout="@layout/fragment_album" />
+            tools:layout="@layout/fragment_album" >
+    </fragment>
     <fragment
             android:id="@+id/navigation_collector"
             android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
             android:label="@string/title_collector"
-            tools:layout="@layout/fragment_collector" />
+            tools:layout="@layout/fragment_collector" >
+    </fragment>
     <fragment
             android:id="@+id/fragment_album_creation"
             android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
             android:label="@string/title_collector"
-            tools:layout="@layout/fragment_album_creation" />
+            tools:layout="@layout/fragment_album_creation" >
+    </fragment>
     <fragment
             android:id="@+id/navigation_artist"
             android:name="com.co.retrofit.app.feature.view.fragments.ArtistListFragment"
-            android:label="@string/title_artist" />
+            android:label="@string/title_artist"
+            tools:layout="@layout/fragment_artist_list">
+        <action
+                android:id="@+id/action_navigation_artist_to_navigation_albums_of_artist"
+                app:destination="@id/navigation_albums_of_artist" />
+    </fragment>
+    <fragment
+            android:id="@+id/navigation_albums_of_artist"
+            android:name="com.co.retrofit.app.feature.view.fragments.AlbumsOfArtistFragment"
+            android:label="AlbumsOfArtist"
+            tools:layout="@layout/fragment_albums_of_artist" >
+            <argument
+            android:name="artistId"
+            app:argType="integer" />
+        <argument
+                android:name="artist"
+                app:argType="com.co.retrofit.app.feature.model.dto.Artist" />
+    </fragment>
+
 </navigation>

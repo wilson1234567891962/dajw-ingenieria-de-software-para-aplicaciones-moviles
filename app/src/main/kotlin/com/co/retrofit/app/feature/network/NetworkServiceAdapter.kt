@@ -1,6 +1,7 @@
 package com.co.retrofit.app.feature.network
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -15,7 +16,8 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.stream.Collectors
+
+
 
 
 class NetworkServiceAdapter constructor(context: Context) {
@@ -83,6 +85,24 @@ class NetworkServiceAdapter constructor(context: Context) {
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
                     list.add(i, Album(name = item.getString("name"), cover = item.getString("cover"), genre = item.getString("genre")))
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun getAlbumsOfArtist(artistId:Int, onComplete:(resp:List<Album>)->Unit, onError: (error:VolleyError)->Unit) {
+        requestQueue.add(getRequest("bands/$artistId/albums",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Album>()
+                var item: JSONObject? = null
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    Log.d("Response", item.toString())
+                    list.add(i, Album(name = item.getString("name"), genre = item.getString("genre"), cover = item.getString("cover")))
                 }
                 onComplete(list)
             },

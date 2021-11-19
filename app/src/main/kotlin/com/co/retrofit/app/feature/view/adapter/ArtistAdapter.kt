@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -13,6 +14,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.ArtistItemBinding
 import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.app.feature.view.fragments.ArtistListFragmentDirections
 
 class ArtistAdapter(private val fragment: Fragment):
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
@@ -37,7 +39,17 @@ class ArtistAdapter(private val fragment: Fragment):
             it.artist = artists[position]
 
         }
+
         holder.bind(artists[position])
+
+
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = ArtistListFragmentDirections.actionNavigationArtistToNavigationAlbumsOfArtist(artists[position].artistId, artists[position])
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
