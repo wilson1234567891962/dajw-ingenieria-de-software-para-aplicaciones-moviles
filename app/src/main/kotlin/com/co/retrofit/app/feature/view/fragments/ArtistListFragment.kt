@@ -16,6 +16,7 @@ import com.co.base.retrofit.extension.hideLoader
 import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentArtistListBinding
+import com.co.retrofit.app.feature.RetrofitApplication
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.view.adapter.ArtistAdapter
 import com.co.retrofit.app.feature.viewmodel.ArtistViewModel
@@ -66,13 +67,13 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
             "You can only access the viewModel after onActivityCreated()"
         }
         activity.actionBar?.title = getString(R.string.title_artist)
-        viewModel = ViewModelProvider(this, ArtistViewModel.Factory(activity.application)).get(ArtistViewModel::class.java)
-        this.activity?.showLoader()
+        viewModel = ViewModelProvider(this, ArtistViewModel.Factory(activity.application as RetrofitApplication)).get(ArtistViewModel::class.java)
+        //this.activity?.showLoader()
         viewModel.artists.observe(viewLifecycleOwner, Observer<List<Artist>> {
             it.apply {
                 viewModelAdapter!!.artists = this
             }
-            this.activity?.hideLoader()
+            //this.activity?.hideLoader()
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()

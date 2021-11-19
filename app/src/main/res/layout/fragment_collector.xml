@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".feature.view.fragments.CollectorFragment"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
+    <com.co.retrofit.app.feature.view.fragments.HeaderView
+            android:id="@+id/home_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:id="@+id/collectorRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prueba de concepto"
-            android:textSize="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-    </TextView>
+            tools:listitem="@layout/collector_item"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

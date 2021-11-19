@@ -10,11 +10,17 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
+import com.co.retrofit.app.feature.model.dto.Collector
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
+
+
 
 
 class NetworkServiceAdapter constructor(context: Context) {
@@ -32,19 +38,45 @@ class NetworkServiceAdapter constructor(context: Context) {
         // applicationContext keeps you from leaking the Activity or BroadcastReceiver if someone passes one in.
         Volley.newRequestQueue(context.applicationContext)
     }
-    fun getArtists(onComplete:(resp:List<Artist>)->Unit, onError: (error:VolleyError)->Unit){
+    suspend fun getArtists() =  suspendCoroutine<List<Artist>>{ cont->
         requestQueue.add(getRequest("bands",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artist>()
+                var item: JSONObject? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
-                    list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), image = item.getString("image"), creationDate = item.getString("creationDate"), description = item.getString("description")))
+                    item = resp.getJSONObject(i)
+                    list.add(i, Artist(
+                            artistId = item.getInt("id"),
+                            name = item.getString("name"),
+                            image = item.getString("image"),
+                            creationDate = item.getString("creationDate"),
+                            description = item.getString("description")))
                 }
-                onComplete(list)
+                cont.resume(list)
             },
             Response.ErrorListener {
-                onError(it)
+                cont.resumeWithException (it)
+            }))
+    }
+    suspend fun getCollectors() =  suspendCoroutine<List<Collector>>{ cont->
+        requestQueue.add(getRequest("collectors",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Collector>()
+                var item: JSONObject? = null
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    list.add(i, Collector(
+                        collectorId = item.getInt("id"),
+                        name = item.getString("name"),
+                        telephone = item.getString("telephone"),
+                        email = item.getString("email")))
+                }
+                cont.resume(list)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException (it)
             }))
     }
 

@@ -8,6 +8,8 @@ import com.android.volley.VolleyError
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.network.CacheManager
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class AlbumsOfArtistRepository (val application: Application) {
@@ -29,7 +31,7 @@ class AlbumsOfArtistRepository (val application: Application) {
 
     suspend fun getAlbumsOfArtist(artistId:Int): List<Album>{
         val format = Json {  }
-        val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ARTISTS_SPREFS)
+        val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ARTIST_SPREFS)
         if(prefs.contains(artistId.toString())){
             val storedVal = prefs.getString(artistId.toString(), "")
             if(!storedVal.isNullOrBlank()){
@@ -42,7 +44,7 @@ class AlbumsOfArtistRepository (val application: Application) {
 
     suspend fun addAlbumsOfArtist(artistId:Int, albumsOfArtist: List<Album>){
         val format = Json {  }
-        val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ARTISTS_SPREFS)
+        val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ARTIST_SPREFS)
         if(!prefs.contains(artistId.toString())){
             var store = format.encodeToString(albumsOfArtist)
             with(prefs.edit(),{
