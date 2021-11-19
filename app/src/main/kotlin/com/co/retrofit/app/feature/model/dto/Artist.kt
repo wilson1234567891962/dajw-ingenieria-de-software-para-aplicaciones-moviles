@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "albums_table")
+@Entity(tableName = "artists_table")
 data class Artist(
     @PrimaryKey val albumId:Int,
     val artistId:Int,
