@@ -31,6 +31,12 @@
                 android:id="@+id/action_navigation_artist_to_navigation_albums_of_artist"
                 app:destination="@id/navigation_albums_of_artist" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail_album"
+        android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumDetailFragment"
+        android:label="@string/title_artist" />
+
     <fragment
             android:id="@+id/navigation_albums_of_artist"
             android:name="com.co.retrofit.app.feature.view.fragments.AlbumsOfArtistFragment"
@@ -43,5 +49,10 @@
                 android:name="artist"
                 app:argType="com.co.retrofit.app.feature.model.dto.Artist" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_music"
+        android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumMusicFragment"
+        android:label="@string/title_artist" />
 
 </navigation>

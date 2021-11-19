@@ -12,6 +12,8 @@
    <dimen name="_24sdp">24.00dp</dimen>
    <dimen name="_32sdp">32.00dp</dimen>
    <dimen name="_50sdp">50.00dp</dimen>
+   <dimen name="_70sdp">70.00dp</dimen>
+   <dimen name="_80sdp">80.00dp</dimen>
    <dimen name="_110sdp">110.00dp</dimen>
    <dimen name="_120sdp">120.00dp</dimen>
    <dimen name = "default_padding">16dp</dimen>

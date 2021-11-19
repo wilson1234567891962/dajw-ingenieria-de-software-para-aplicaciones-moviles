@@ -9,7 +9,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
     }
     dependencies {
 
@@ -24,9 +23,6 @@ buildscript {
 
         def nav_version = "2.3.2"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
-
-
-
     }
 }
 
@@ -82,10 +78,6 @@ subprojects {
 
             compileSdkVersion 30
             buildToolsVersion "30.0.3"
-            // Gradle automatically adds 'android.test.runner' as a dependency.
-            useLibrary 'android.test.runner'
-            useLibrary 'android.test.base'
-            useLibrary 'android.test.mock'
 
             defaultConfig {
                 minSdkVersion 21
@@ -100,9 +92,7 @@ subprojects {
                 buildTypes.release.testCoverageEnabled = false
                 buildTypes.debug.multiDexEnabled = true
 
-
                 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
             }
 
             flavorDimensions "retro"

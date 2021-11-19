@@ -7,7 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="Theme.MyApp.AppBar" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- ... -->
+    </style>
     <!-- HeaderView -->
     <style name="HeaderView">
         <item name="android:elevation">@dimen/default_elevation</item>
