@@ -10,24 +10,24 @@
             android:orientation="vertical">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/title_music_album"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/_8sdp">
+            android:id="@+id/title_music_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_8sdp">
 
             <ImageView
-                    android:id="@+id/back_add_music"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/back"></ImageView>
+                android:id="@+id/back_add_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"></ImageView>
 
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:text="@string/detail_add_music_title"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/_24sdp"></TextView>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/detail_add_music_title"
+                android:textAlignment="center"
+                android:textSize="@dimen/_24sdp"></TextView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
