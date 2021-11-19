@@ -2,7 +2,6 @@ package com.co.retrofit.app.feature.view.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
@@ -10,13 +9,10 @@ import com.co.base.retrofit.BaseActivity
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.base.retrofit.extension.hideLoader
-import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
-import com.co.retrofit.data.model.dto.TestDto
 import androidx.navigation.ui.setupWithNavController
 import com.co.retrofit.app.feature.viewmodel.MainViewModel
 import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.Artist
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : BaseActivity() {
@@ -56,21 +52,14 @@ class MainActivity : BaseActivity() {
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
 
-    private fun getArtistApi() {
-        viewModel.getArtistApi()
-            .observeData(this, ::getArtist)
-            .observeErrorThrowable(this, ::observeErrorThrowable)
-    }
+
 
     private fun getAlbums(albums: List<Album>) {
         viewModel.setAlbumApi(albums)
-        getArtistApi()
+
     }
 
-    private fun getArtist(artist: List<Artist>) {
-        viewModel.setArtist(artist)
-        this.hideLoader()
-    }
+
 
     @Suppress("UNUSED_PARAMETER")
     private fun addAlbum(view: View){

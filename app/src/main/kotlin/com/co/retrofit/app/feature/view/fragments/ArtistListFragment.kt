@@ -1,8 +1,6 @@
 package com.co.retrofit.app.feature.view.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,11 +16,10 @@ import com.co.base.retrofit.extension.hideLoader
 import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentArtistListBinding
-import com.co.retrofit.app.feature.view.activities.Maintenance
-import com.co.retrofit.data.model.dto.Artist
+import com.co.retrofit.app.feature.RetrofitApplication
+import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.view.adapter.ArtistAdapter
 import com.co.retrofit.app.feature.viewmodel.ArtistViewModel
-import com.co.retrofit.data.model.dto.Album
 
 
 class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
@@ -30,6 +27,7 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
     private val artistViewModel by viewModelProvider(ArtistViewModel::class)
     private var _binding: FragmentArtistListBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: ArtistViewModel
     private lateinit var recyclerView: RecyclerView
     private var viewModelAdapter: ArtistAdapter? = null
 
@@ -69,27 +67,34 @@ class ArtistListFragment : Fragment(R.layout.fragment_artist_list) {
             "You can only access the viewModel after onActivityCreated()"
         }
         activity.actionBar?.title = getString(R.string.title_artist)
-        getArtist()
+        viewModel = ViewModelProvider(this, ArtistViewModel.Factory(activity.application as RetrofitApplication)).get(ArtistViewModel::class.java)
+        //this.activity?.showLoader()
+        viewModel.artists.observe(viewLifecycleOwner, Observer<List<Artist>> {
+            it.apply {
+                viewModelAdapter!!.artists = this
+            }
+            //this.activity?.hideLoader()
+        })
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+            if (isNetworkError) onNetworkError()
+        })
     }
-
-    private fun getArtist() {
-        artistViewModel.getArtistCache()
-            .observeSingleData(this, ::processArtist)
-            .observeErrorThrowable(this, ::observeErrorThrowable)
-    }
-
-    private fun processArtist(artist: List<Artist>) {
-        if (artist.isNotEmpty()) {
-            viewModelAdapter!!.artists = artist
+    private fun onNetworkError() {
+        if(!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
         }
     }
-    @Suppress("UNUSED_PARAMETER")
-    private fun observeErrorThrowable(error: Throwable){
-        val intent = Intent(this.activity, Maintenance::class.java)
-        startActivity(intent)
-    }
+
+
 
     private fun showFloating() {
         artistViewModel.setStateFloating(false)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

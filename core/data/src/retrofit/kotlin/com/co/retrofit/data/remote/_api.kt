@@ -2,7 +2,6 @@ package com.co.retrofit.data.remote
 
 import com.co.base.retrofit.backend.BackendClient
 import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.Artist
 import com.co.retrofit.data.model.dto.DetailAlbum
 import com.google.gson.JsonElement
 import retrofit2.Call
@@ -13,9 +12,6 @@ interface Api {
 
     @GET("/albums")
     fun getAlbums(): Call<List<Album>>
-
-    @GET("/bands")
-    fun getArtist(): Call<List<Artist>>
 
     @GET("/albums/{id}")
     fun getDetailAlbum(@Path("id") id: Int): Call<DetailAlbum>

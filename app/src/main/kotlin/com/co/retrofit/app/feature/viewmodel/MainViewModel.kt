@@ -3,8 +3,6 @@ import androidx.lifecycle.ViewModel
 import com.co.retrofit.data.RepositoryProvider
 import com.co.retrofit.data.livedata.ResponseLiveData
 import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.Artist
-import com.co.retrofit.data.model.dto.TestDto
 
 class MainViewModel : ViewModel() {
 
@@ -12,9 +10,6 @@ class MainViewModel : ViewModel() {
          return RepositoryProvider.albumRepository.getAlbumsApi()
     }
 
-    fun getArtistApi(): ResponseLiveData<List<Artist>> {
-        return RepositoryProvider.artistRepository.getArtistApi()
-    }
 
     fun getStateFloating(): ResponseLiveData<Boolean> {
         return RepositoryProvider.sessionRepository.getStateFloating()
@@ -24,7 +19,5 @@ class MainViewModel : ViewModel() {
         return RepositoryProvider.albumRepository.setAlbum(albums)
     }
 
-    fun setArtist(artist: List<Artist>) {
-        return RepositoryProvider.artistRepository.setArtist(artist)
-    }
+
 }
