@@ -35,7 +35,6 @@
                     style="@style/Text.Small"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="117dp"
-                    android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/_1sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
