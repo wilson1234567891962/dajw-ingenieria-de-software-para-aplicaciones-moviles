@@ -11,5 +11,6 @@ data class Album (
     val cover: String,
     val name: String,
     val genre: String,
-
+    @PrimaryKey(autoGenerate = true)
+    val albumId:Int = 0
 )
