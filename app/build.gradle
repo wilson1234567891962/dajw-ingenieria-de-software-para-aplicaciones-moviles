@@ -101,6 +101,12 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:3.4.0') {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     // Room components
@@ -115,7 +121,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
-
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
 
