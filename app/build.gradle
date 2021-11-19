@@ -7,7 +7,7 @@ plugins {
     id 'kotlin-parcelize'
 }
 apply plugin: "kotlinx-serialization"
-apply plugin: 'kotlin-kapt'
+
 
 android {
     // Gradle automatically adds 'android.test.runner' as a dependency.

@@ -1,8 +1,6 @@
 package com.co.retrofit.app.feature.model.dto
 
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
