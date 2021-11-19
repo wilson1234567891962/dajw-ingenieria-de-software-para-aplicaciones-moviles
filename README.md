@@ -15,18 +15,12 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 Para poder ejecutar de manera correcta el proyecto debe tener configurado las siguientes herramientas en su maquina
 
 ```
-Node,              Version  12.17.0
-Cypress,           Version  7.2.0
-Chrome,            Version  90.0.4430.93
 Git,               Version  2.21.0
-Ghost ,            Version  3.3.0
 Kraken,            Version  1.0.9  
 ADB Android ,      Version  30.0.5-6877874   
 ChromeDriver       Version  ChromeDriver 90.0.4430.24
 Java               Version  1.8.0_91
-Rubby              Version  ruby 2.6.7p197
 Android studio     Version  ArticFox
-Chromium           Version  92.0.4499.0
 ```
 
 ### Instalación 🔧
