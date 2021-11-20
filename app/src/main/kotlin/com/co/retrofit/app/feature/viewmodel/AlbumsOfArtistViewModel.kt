@@ -7,6 +7,7 @@ import androidx.lifecycle.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
+import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
@@ -17,7 +18,7 @@ import kotlinx.coroutines.withContext
 
 class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: Artist) :  AndroidViewModel(application){
 
-    private val albumsOfArtistRepository = AlbumsOfArtistRepository(application)
+    private val albumsOfArtistRepository = AlbumsOfArtistRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).albumsDao())
 
     private val _albumsOfArtist = MutableLiveData<List<Album>>()
 

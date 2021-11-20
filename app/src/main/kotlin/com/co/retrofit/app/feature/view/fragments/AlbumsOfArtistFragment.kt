@@ -23,9 +23,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
+import com.co.retrofit.app.feature.RetrofitApplication
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
 import com.co.retrofit.app.feature.viewmodel.AlbumsOfArtistViewModel
+import com.co.retrofit.app.feature.viewmodel.ArtistViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -80,7 +82,7 @@ class AlbumsOfArtistFragment : Fragment() {
 
         Log.d("Args", args.artistId.toString())
 
-        viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application, args.artistId, args.artist)).get(AlbumsOfArtistViewModel::class.java)
+        viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application as RetrofitApplication, args.artistId, args.artist)).get(AlbumsOfArtistViewModel::class.java)
         viewModel.albumsOfArtist.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
                 viewModelAdapter!!.albums_of_artist = this
