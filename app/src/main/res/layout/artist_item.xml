@@ -5,8 +5,6 @@
         xmlns:tools="http://schemas.android.com/tools">
 
 
-
-
     <data>
         <variable name="artist" type="com.co.retrofit.app.feature.model.dto.Artist"/>
     </data>
