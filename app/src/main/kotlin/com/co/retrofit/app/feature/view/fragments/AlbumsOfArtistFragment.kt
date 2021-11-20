@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewModelProvider
+import com.co.base.retrofit.delegate.viewProvider
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
 import com.co.retrofit.app.feature.RetrofitApplication
@@ -43,6 +45,7 @@ class AlbumsOfArtistFragment : Fragment() {
     private lateinit var viewModel: AlbumsOfArtistViewModel
     private lateinit var recyclerView: RecyclerView
     private var viewModelAdapter: AlbumOfArtistAdapter? = null
+    private val back: View by viewProvider(R.id.back_detail_artist)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +62,7 @@ class AlbumsOfArtistFragment : Fragment() {
         recyclerView = binding.albumsOfArtistRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
+        setUpListenerEvent()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -76,8 +80,8 @@ class AlbumsOfArtistFragment : Fragment() {
         activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
         activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.creationDate}
         Glide.with(activity)
-            .load(args.artist.image)
-            .apply(RequestOptions().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
+            .load(args.artist.image.toUri().buildUpon().scheme("https").build())
+            .apply(RequestOptions.circleCropTransform().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
             .into(activity.findViewById<ImageView>(R.id.artist_image))
 
         Log.d("Args", args.artistId.toString())
@@ -107,5 +111,14 @@ class AlbumsOfArtistFragment : Fragment() {
             Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
             viewModel.onNetworkErrorShown()
         }
+    }
+
+    private fun setUpListenerEvent() {
+        back.setOnClickListener(this::backPressed)
+    }
+    @Suppress("UNUSED_PARAMETER")
+    private fun backPressed(view: View) {
+        val navController = this.activity?.findNavController(R.id.nav_host_fragment)
+        navController?.navigate(R.id.navigation_artist)
     }
 }

@@ -12,10 +12,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <com.co.retrofit.app.feature.view.fragments.HeaderView
-                android:id="@+id/home_header"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/title_detail_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/back_detail_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"></ImageView>
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Detalle Artista"
+                android:textAlignment="center"
+                android:textSize="@dimen/_24sdp"></TextView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/title_detail_album"
+            android:background="@color/dark_gray" />
 
         <ImageView
                 android:id="@+id/artist_image"
