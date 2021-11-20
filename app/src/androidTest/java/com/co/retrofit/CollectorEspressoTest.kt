@@ -35,8 +35,6 @@ class CollectorEspressoTest {
             .perform(click())
         onView(withId(R.id.collectorRecyclerView))
             .check(matches(atPosition(0, hasDescendant(withText("Manolo Bellon")))))
-        onView(withId(R.id.fab))
-            .perform(click())
         onView(withId(R.id.navigation_artist))
             .perform(click())
         onView(withId(R.id.navigation_collector))
