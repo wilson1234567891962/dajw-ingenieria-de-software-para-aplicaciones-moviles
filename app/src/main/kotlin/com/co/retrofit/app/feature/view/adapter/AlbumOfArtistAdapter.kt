@@ -2,6 +2,7 @@ package com.co.retrofit.app.feature.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -34,11 +35,11 @@ class   AlbumOfArtistAdapter(private val fragment: Fragment) : RecyclerView.Adap
 
         holder.viewDataBinding.also {
 
-            val artistImg = albums_of_artist[position]
+            val albumImg = albums_of_artist[position]
 
             Glide.with(fragment)
-                .load(artistImg.cover)
-                .apply(RequestOptions().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
+                .load(albumImg.cover.toUri().buildUpon().scheme("https").build())
+                .apply(RequestOptions.circleCropTransform().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
                 .into(holder.ivDishImage)
 
             it.albumOfArtist = albums_of_artist[position]
