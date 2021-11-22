@@ -1,0 +1,51 @@
+-- Merging decision tree log ---
+manifest
+<<<<<<< HEAD
+ADDED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml:2:1-4:12
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml:2:1-4:12
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml:2:1-4:12
+	package
+		ADDED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml:2:11-37
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml:2:1-4:12
+uses-sdk
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+		ADDED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+		ADDED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+		INJECTED from /home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+=======
+ADDED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml:2:1-4:12
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml:2:1-4:12
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml:2:1-4:12
+	package
+		ADDED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml:2:11-37
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml:2:1-4:12
+uses-sdk
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+>>>>>>> feature/detalle_artista

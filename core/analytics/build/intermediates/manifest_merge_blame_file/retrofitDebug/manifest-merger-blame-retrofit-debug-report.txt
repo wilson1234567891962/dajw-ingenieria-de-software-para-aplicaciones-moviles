@@ -1,0 +1,17 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.co.analytics" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+<<<<<<< HEAD
+6-->/home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->/home/accedian/AndroidStudioProjects/dajw-ingenieria-de-software-para-aplicaciones-moviles/core/analytics/src/main/AndroidManifest.xml
+=======
+6-->C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->C:\Users\USUARIO\Desktop\Angelica2\Maestria\moviles\pruebasSrpint1\dajw-ingenieria-de-software-para-aplicaciones-moviles\core\analytics\src\main\AndroidManifest.xml
+>>>>>>> feature/detalle_artista
+8
+9</manifest>

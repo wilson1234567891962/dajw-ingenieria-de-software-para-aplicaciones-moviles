@@ -2,5 +2,5 @@ rootProject.name='My Application'
 include ':app'
 
 // Core Modules
-include ':core:data', ':core:base', ':core:analytics'
+include ':core:data', ':core:base'
 

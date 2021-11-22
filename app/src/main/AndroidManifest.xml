@@ -5,29 +5,25 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
-
     <application
             android:name=".feature.RetrofitApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:networkSecurityConfig="@xml/network_security_config"
-            android:usesCleartextTraffic="true"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-
-        <uses-library android:name="android.test.runner"
-                android:required="false" />
-
-        <activity android:name=".feature.view.activities.MainActivity">
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
+        <activity
+                android:name=".feature.view.activities.Maintenance" />
+        <activity android:name=".feature.view.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".feature.view.activities.MainActivity" />
     </application>
 
 </manifest>

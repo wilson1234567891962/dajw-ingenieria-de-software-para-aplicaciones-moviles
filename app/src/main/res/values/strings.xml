@@ -1,15 +1,34 @@
 <resources>
     <string name="app_name">Vinyls</string>
 
-    <string name="splash_screen_title">Bicicletas</string>
+    <string name="splash_screen_title">Music</string>
     <string name="title_home">Albumes</string>
     <string name="title_collector">Coleccionistas</string>
     <string name="title_artist">Artistas</string>
     <string name="title_search">Buscador</string>
+    <string name="title_albums_of_artist">Albumes del artista</string>
+    <string name="txt_no_comments">No hay albumes para este artista</string>
 
     <string name="image_contentDescription">Buscador</string>
 
     <string name="label_album_added_yet">No hay albumes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion">Descripcion:</string>
+    <string name="fecha_de_creacion">Fecha de creacion:</string>
+    <string name="albumes">Albumes</string>
+
+
+    <string name="detail_album_title">Detalle album</string>
+    <string name="detail_title_list_title">Cancion</string>
+    <string name="detail_duration_list_title">Duracion</string>
+    <string name="todo">TODO</string>
+
+
+    <string name="detail_add_music_title">Añadir cancion</string>
+    <string name="detail_add_music_title_one">Nombre de cancion</string>
+    <string name="detail_add_music_title_second">Duracion</string>
+
+    <string name="maintenance">Se presentaron problemas tecnicos por favor intente nuevamente.</string>
+    <string name="maintenance_button">Intentar de nuevo</string>
 </resources>
