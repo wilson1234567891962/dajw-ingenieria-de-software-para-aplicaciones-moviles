@@ -31,4 +31,15 @@
 
     <string name="maintenance">Se presentaron problemas tecnicos por favor intente nuevamente.</string>
     <string name="maintenance_button">Intentar de nuevo</string>
+
+    <string name="creation_album_record">Discrografica</string>
+    <string name="creation_album_description">Descripcion</string>
+    <string name="creation_album_btn_cancelation">Cancelar</string>
+    <string name="creation_album_btn_accept">Aceptar</string>
+    <string name="creation_album_gnere">Genero</string>
+    <string name="creation_album_release_date">Lanzamiento</string>
+    <string name="creation_album_artist">Artista</string>
+    <string name="creation_album_name">Nombre</string>
+    <string name="creation_album_title">Añadir album</string>
+
 </resources>

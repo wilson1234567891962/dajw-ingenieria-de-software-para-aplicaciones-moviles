@@ -43,6 +43,10 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         return makeRequest(api.addAlbum())
     }
 
+    override fun createAlbum(albumCreation: AlbumCreation): ResponseLiveData<JsonElement> {
+        return makeRequest(api.createAlbum(albumCreation))
+    }
+
     override fun saveSelectionAlbumItem(albumItems: Album): Unit {
         val liveData = MutableResponseLiveData<Album>()
         liveData.postData(albumItems)
