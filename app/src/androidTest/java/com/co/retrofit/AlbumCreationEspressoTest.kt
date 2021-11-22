@@ -137,5 +137,5 @@ class AlbumCreationEspressoTest {
         onView(isRoot()).perform(ViewActions.closeSoftKeyboard())
     }
 
-  
+
 }
