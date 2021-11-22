@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/detail_album_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_48sdp"
                 android:contentDescription="@string/usability_back"
-                android:src="@drawable/back"></ImageView>
+                android:src="@drawable/back"/>
 
             <TextView
                 android:id="@+id/arrow_title"
@@ -31,7 +31,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:text="@string/creation_album_title"
                 android:textAlignment="center"
-                android:textSize="@dimen/_24sdp"></TextView>
+                android:textSize="@dimen/_24sdp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

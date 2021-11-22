@@ -22,7 +22,7 @@
                 android:id="@+id/back_detail_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_48sdp"
-                android:src="@drawable/back"></ImageView>
+                android:src="@drawable/back"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:text="Detalle Artista"
                 android:textAlignment="center"
-                android:textSize="@dimen/_24sdp"></TextView>
+                android:textSize="@dimen/_24sdp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
