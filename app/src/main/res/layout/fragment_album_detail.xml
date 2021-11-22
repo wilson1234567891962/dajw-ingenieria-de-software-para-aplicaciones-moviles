@@ -19,7 +19,8 @@
             <ImageView
                 android:id="@+id/back_detail_album"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@string/usability_back"
                 android:src="@drawable/back"></ImageView>
 
             <TextView

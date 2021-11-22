@@ -21,10 +21,19 @@
         <entry key="..\:/Users/wilso/Desktop/Nueva carpeta/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album_creation.xml" value="0.10520833333333333" />
         <entry key="..\:/Users/wilso/Desktop/Nueva carpeta/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/menu/button_nav_menu.xml" value="0.10520833333333333" />
         <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/drawable/border_btn.xml" value="0.221875" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/drawable/circle_item.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/drawable/my_edit_text_border.xml" value="0.221875" />
         <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/activity_main.xml" value="0.10326086956521739" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/activity_maintenance.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_add_music.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album.xml" value="0.1358695652173913" />
         <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album_creation.xml" value="0.1358695652173913" />
         <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_album_detail.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_albums_of_artist.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/fragment_collector.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/header_view_col.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/item_album_layout.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/wilso/Desktop/movil/dajw-ingenieria-de-software-para-aplicaciones-moviles/app/src/main/res/layout/item_detail_music_album_layout.xml" value="0.1358695652173913" />
         <entry key="core/base/src/main/res/layout/fragment_dialog_loader.xml" value="0.29483695652173914" />
       </map>
     </option>

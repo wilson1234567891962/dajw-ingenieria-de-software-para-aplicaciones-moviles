@@ -11,6 +11,7 @@
    <dimen name="_16sdp">16.00dp</dimen>
    <dimen name="_24sdp">24.00dp</dimen>
    <dimen name="_32sdp">32.00dp</dimen>
+   <dimen name="_48sdp">48.00dp</dimen>
    <dimen name="_50sdp">50.00dp</dimen>
    <dimen name="_70sdp">70.00dp</dimen>
    <dimen name="_80sdp">80.00dp</dimen>

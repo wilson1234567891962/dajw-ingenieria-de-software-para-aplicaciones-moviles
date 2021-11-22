@@ -20,7 +20,8 @@
             <ImageView
                 android:id="@+id/arrow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@string/usability_back"
                 android:src="@drawable/back"></ImageView>
 
             <TextView
@@ -52,12 +53,14 @@
             android:text="Caratula" />
 
         <EditText
+            android:textColorHint="@color/alabaster_solid"
             android:id="@+id/caratula_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/relativeLayout"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
+            android:hint="@string/usability_add_album_caratula"
             android:inputType="text"
             android:textSize="@dimen/_16sdp" />
 
@@ -73,9 +76,11 @@
             android:text="@string/creation_album_name" />
 
         <EditText
+            android:textColorHint="@color/alabaster_solid"
             android:id="@+id/name_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
+            android:hint="@string/usability_add_album_name"
             android:layout_below="@+id/caratula_label"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
@@ -94,9 +99,11 @@
             android:text="@string/creation_album_artist" />
 
         <EditText
+            android:textColorHint="@color/alabaster_solid"
             android:id="@+id/artista_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
+            android:hint="@string/usability_add_album_artist"
             android:layout_below="@+id/name_label"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
@@ -117,13 +124,15 @@
         <EditText
             android:id="@+id/lanzamiento_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/artista_label"
             android:layout_marginLeft="@dimen/_24sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:textSize="@dimen/_16sdp"
             android:layout_toRightOf="@+id/caratula_label"
-            android:inputType="text" />
+            android:hint="@string/usability_add_album_release"
+            android:inputType="text"
+            android:textColorHint="@color/alabaster_solid"
+            android:textSize="@dimen/_16sdp" />
 
         <TextView
             android:id="@+id/Genero_label"
@@ -139,11 +148,13 @@
         <EditText
             android:id="@+id/Genero_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/lanzamiento_label"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
             android:inputType="text"
+            android:hint="@string/usability_add_album_gender"
+            android:textColorHint="@color/alabaster_solid"
             android:textSize="@dimen/_16sdp" />
 
 
@@ -160,12 +171,14 @@
         <EditText
             android:id="@+id/casa_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/Genero_label"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
+            android:hint="@string/usability_add_album_discrografy"
             android:inputType="text"
+            android:textColorHint="@color/alabaster_solid"
             android:textSize="@dimen/_16sdp" />
 
         <TextView
@@ -186,9 +199,13 @@
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_24sdp"
             android:layout_toRightOf="@+id/caratula_label"
-            android:background="@drawable/my_edit_text_border"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:background="@color/white"
             android:gravity="top"
+            android:backgroundTint="@color/white"
+            android:hint="@string/usability_add_album_description"
             android:inputType="text|textMultiLine"
+            android:textColorHint="@color/white"
             android:textSize="@dimen/_16sdp" />
 
 

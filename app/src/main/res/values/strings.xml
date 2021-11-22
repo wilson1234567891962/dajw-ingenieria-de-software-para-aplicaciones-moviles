@@ -42,4 +42,15 @@
     <string name="creation_album_name">Nombre</string>
     <string name="creation_album_title">Añadir album</string>
 
+    <string name="main_usability_floating">Buton para añadir o agregar tracks</string>
+    <string name="usability_back">Devolverse</string>
+    <string name="usability_add_music">Diligenciar el nombre de la cancion para añadir en la cancion</string>
+    <string name="usability_add_music_duration">Diligenciar la duracion de la cancion</string>
+    <string name="usability_add_album_caratula">Ingrese la caratula</string>
+    <string name="usability_add_album_name">Ingrese la nombre</string>
+    <string name="usability_add_album_artist">Ingrese la artista</string>
+    <string name="usability_add_album_release">Ingrese la lanzamiento</string>
+    <string name="usability_add_album_gender">Ingrese la genero</string>
+    <string name="usability_add_album_discrografy">Ingrese la discrografia</string>
+    <string name="usability_add_album_description">Ingrese la descripcion</string>
 </resources>
