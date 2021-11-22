@@ -2,6 +2,9 @@ package com.co.retrofit;
 
 
 
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static org.hamcrest.CoreMatchers.allOf;
 import static kotlin.jvm.internal.Intrinsics.checkNotNull;
 
 import android.view.View;
@@ -11,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.matcher.BoundedMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -42,6 +47,25 @@ public class TestUtils {
         };
     }
 
+    public static ViewAction setTextEditText(final Matcher<View> matcher,
+                                             final String newText) {
+        return new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return allOf(isDisplayed(), isAssignableFrom(EditText.class));
+            }
+
+            @Override
+            public String getDescription() {
+                return "Update the text from the custom EditText";
+            }
+
+            @Override
+            public void perform(final UiController uiController, final View view) {
+                ((EditText) view).setText(newText);
+            }
+        };
+    }
 
     public static Matcher<View> hasValueEqualTo(final String content) {
 
