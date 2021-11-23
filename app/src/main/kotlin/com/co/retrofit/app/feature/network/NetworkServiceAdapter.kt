@@ -117,6 +117,26 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    suspend fun getAlbumsOfCollector(collectorId:Int) = suspendCoroutine<List<Album>> { cont ->
+
+        requestQueue.add(getRequest("collectors/$collectorId/albums",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                var list = mutableListOf<Album>()
+                var item: JSONObject? = null
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    val album = Album(name = item.getString("name"), genre = item.getString("genre"), cover = item.getString("cover"))
+                    Log.d("Response", item.toString())
+                    list.add(i, album)
+                }
+                cont.resume(list)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
