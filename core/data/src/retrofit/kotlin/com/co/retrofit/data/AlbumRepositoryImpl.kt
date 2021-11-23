@@ -39,8 +39,8 @@ internal class AlbumRepositoryImpl : AlbumRepository {
         return makeRequest(api.getDetailAlbum(album.id))
     }
 
-    override fun addMusicAlbum(music: Music): ResponseLiveData<JsonElement> {
-        return makeRequest(api.addAlbum())
+    override fun addMusicAlbum(music: Music, id: Int): ResponseLiveData<JsonElement> {
+        return makeRequest(api.addTrack(music, id))
     }
 
     override fun createAlbum(albumCreation: AlbumCreation): ResponseLiveData<JsonElement> {

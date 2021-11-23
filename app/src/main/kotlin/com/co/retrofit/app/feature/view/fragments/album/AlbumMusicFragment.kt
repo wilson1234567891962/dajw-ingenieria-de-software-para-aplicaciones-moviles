@@ -61,20 +61,17 @@ class AlbumMusicFragment : Fragment() {
     }
     @Suppress("UNUSED_PARAMETER")
     private fun addMusic(view: View) {
-        this.activity?.showLoader()
-        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()))
+        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()),100)
             .observeData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
     @Suppress("UNUSED_PARAMETER")
     private fun showDetailResult(detailAlbum: JsonElement){
-        this.activity?.hideLoader()
        Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()
     }
 
     @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)
         // start your next activity
         startActivity(intent)

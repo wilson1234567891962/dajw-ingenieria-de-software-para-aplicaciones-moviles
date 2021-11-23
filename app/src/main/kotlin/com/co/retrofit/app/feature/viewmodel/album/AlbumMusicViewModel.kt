@@ -17,7 +17,7 @@ class AlbumMusicViewModel(application: Application) :  AndroidViewModel(applicat
         return RepositoryProvider.sessionRepository.setStateFloating(state)
     }
 
-    fun addMusic(music: Music): ResponseLiveData<JsonElement> {
-        return RepositoryProvider.albumRepository.addMusicAlbum(music)
+    fun addMusic(music: Music, id: Int): ResponseLiveData<JsonElement> {
+        return RepositoryProvider.albumRepository.addMusicAlbum(music, id)
     }
 }

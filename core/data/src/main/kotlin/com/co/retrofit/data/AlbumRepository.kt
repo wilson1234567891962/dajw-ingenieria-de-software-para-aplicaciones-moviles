@@ -16,7 +16,7 @@ interface AlbumRepository {
 
     fun setAlbum(albums: List<Album>): Unit = throw NotImplementedError()
 
-    fun addMusicAlbum(music: Music): ResponseLiveData<JsonElement> = throw NotImplementedError()
+    fun addMusicAlbum(music: Music, id: Int): ResponseLiveData<JsonElement> = throw NotImplementedError()
 
     fun getAlbumSelectionMemory(): ResponseLiveData<Album> = throw NotImplementedError()
 
