@@ -86,7 +86,7 @@ class AlbumDetailFragment : Fragment() {
 
     private fun showDetailResult(detailAlbum: DetailAlbum){
         titleAlbum.text = "${detailAlbum.title}"
-        artistAlbum.text = "Artista: ${detailAlbum.name.first().name}"
+        artistAlbum.text = "Artista: " + if(detailAlbum.name.isNotEmpty()) detailAlbum.name?.first().name else ""
         releaseAlbum.text = "Lanzamiento: ${detailAlbum.release}"
         genereAlbum.text = "Genero: ${detailAlbum.genre}"
         recordAlbum.text = "Casa discográfica: ${detailAlbum.recordLabel}"

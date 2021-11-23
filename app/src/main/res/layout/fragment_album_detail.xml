@@ -19,8 +19,9 @@
             <ImageView
                 android:id="@+id/back_detail_album"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/back"></ImageView>
+                android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@string/usability_back"
+                android:src="@drawable/back"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:text="@string/detail_album_title"
                 android:textAlignment="center"
-                android:textSize="@dimen/_24sdp"></TextView>
+                android:textSize="@dimen/_24sdp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
