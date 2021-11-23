@@ -77,13 +77,12 @@ class AlbumCreation: Fragment() {
     private fun createAlbum(view: View) {
         albumCreationViewModel.createAlbum(
             AlbumCreation(
-                edtCover.text.toString(),
                 edtName.text.toString(),
-                edtArtist.text.toString(),
+                edtCover.text.toString(),
                 edtRelease.text.toString(),
+                edtDescription.text.toString(),
                 edtGender.text.toString(),
-                edtDiscography.text.toString(),
-                edtDescription.text.toString()
+                edtDiscography.text.toString()
             )
         )
             .observeData(this, ::showDetailResult)
@@ -109,6 +108,7 @@ class AlbumCreation: Fragment() {
     }
 
     private fun getAlbums(albums: List<Album>) {
+        Toast.makeText(this.context,"Album creado exitosamente",Toast.LENGTH_SHORT).show();
         albumCreationViewModel.setAlbumApi(albums)
     }
 }
