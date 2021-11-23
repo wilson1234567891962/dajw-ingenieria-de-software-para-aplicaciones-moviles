@@ -75,6 +75,9 @@ class AlbumCreation: Fragment() {
 
 
     private fun createAlbum(view: View) {
+        val imm: InputMethodManager? =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm?.hideSoftInputFromWindow(view?.windowToken, 0)
         albumCreationViewModel.createAlbum(
             AlbumCreation(
                 edtName.text.toString(),
