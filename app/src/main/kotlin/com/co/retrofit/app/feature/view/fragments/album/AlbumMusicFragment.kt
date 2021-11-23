@@ -19,6 +19,8 @@ import android.content.Intent
 import com.co.base.retrofit.extension.hideLoader
 import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.databinding.FragmentAddMusicBinding
+import com.co.retrofit.data.model.dto.Album
+import com.co.retrofit.data.model.dto.DetailAlbum
 
 class AlbumMusicFragment : Fragment() {
     private var mBinding: FragmentAddMusicBinding? = null
@@ -61,10 +63,20 @@ class AlbumMusicFragment : Fragment() {
     }
     @Suppress("UNUSED_PARAMETER")
     private fun addMusic(view: View) {
-        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()),100)
+        albumMusicViewModel.getAlbumSelection()
+            .observeSingleData(this, ::getIdAlbum)
+            .observeErrorThrowable(this, ::observeErrorThrowable)
+
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun getIdAlbum(album: Album){
+        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()),album.id)
             .observeData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
+
+
     @Suppress("UNUSED_PARAMETER")
     private fun showDetailResult(detailAlbum: JsonElement){
        Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()

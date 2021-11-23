@@ -20,4 +20,9 @@ class AlbumMusicViewModel(application: Application) :  AndroidViewModel(applicat
     fun addMusic(music: Music, id: Int): ResponseLiveData<JsonElement> {
         return RepositoryProvider.albumRepository.addMusicAlbum(music, id)
     }
+
+    fun getAlbumSelection(): ResponseLiveData<Album> {
+        return RepositoryProvider.albumRepository.getAlbumSelectionMemory()
+    }
+
 }
