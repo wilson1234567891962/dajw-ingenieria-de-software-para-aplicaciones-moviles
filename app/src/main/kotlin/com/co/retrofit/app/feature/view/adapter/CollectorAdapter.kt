@@ -16,6 +16,7 @@ import com.co.retrofit.app.databinding.CollectorItemBinding
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.model.dto.Collector
 import com.co.retrofit.app.feature.view.fragments.ArtistListFragmentDirections
+import com.co.retrofit.app.feature.view.fragments.CollectorFragmentDirections
 
 
 class CollectorAdapter(private  val fragment: Fragment):
@@ -44,6 +45,12 @@ class CollectorAdapter(private  val fragment: Fragment):
 
         }
         holder.headerLabelInitials.text = collectors[position].name.first().toString()
+
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = CollectorFragmentDirections.actionNavigationCollectorToNavigationAlbumOfCollector(collectors[position].collectorId, collectors[position])
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
+        }
 
 
     }

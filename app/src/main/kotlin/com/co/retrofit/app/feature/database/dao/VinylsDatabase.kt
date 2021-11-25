@@ -7,14 +7,20 @@ import androidx.room.RoomDatabase
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.model.dto.Collector
+import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Collector::class, Artist::class, Album::class], version = 1, exportSchema = false)
+import androidx.room.migration.Migration
+
+
+
+
+@Database(entities = [Collector::class, Artist::class, Album::class], version = 2, exportSchema = false)
 abstract class VinylRoomDatabase : RoomDatabase() {
 
     abstract fun artistsDao(): ArtistsDao
     abstract fun collectorsDao(): CollectorsDao
     abstract fun albumsDao(): AlbumsOfArtistDao
-
+    abstract fun albumsOfCollectorDao(): AlbumsOfCollectorDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
@@ -25,16 +31,20 @@ abstract class VinylRoomDatabase : RoomDatabase() {
         fun getDatabase(context: Context): VinylRoomDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
+
             return INSTANCE ?: synchronized(this) {
+
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     VinylRoomDatabase::class.java,
                     "vinyls_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 // return instance
                 instance
             }
         }
     }
+
+
 }

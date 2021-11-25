@@ -54,4 +54,5 @@
     <string name="usability_add_album_gender">Ingrese la genero</string>
     <string name="usability_add_album_discrografy">Ingrese la discrografia</string>
     <string name="usability_add_album_description">Ingrese la descripcion</string>
+    <string name="no_hay_albumes_para_este_coleccionista">No hay albumes para este coleccionista</string>
 </resources>
