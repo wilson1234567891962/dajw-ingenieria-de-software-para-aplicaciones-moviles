@@ -14,7 +14,7 @@ abstract class VinylRoomDatabase : RoomDatabase() {
     abstract fun artistsDao(): ArtistsDao
     abstract fun collectorsDao(): CollectorsDao
     abstract fun albumsDao(): AlbumsOfArtistDao
-    abstract fun albumsOfCollectorDao(): AlbumsOfCollectorDao
+
 
     companion object {
         // Singleton prevents multiple instances of database opening at the

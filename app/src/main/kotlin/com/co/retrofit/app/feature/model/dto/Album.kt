@@ -13,5 +13,5 @@ data class Album (
     val genre: String,
     @PrimaryKey(autoGenerate = true)
     val artistId:Int = 0,
-    val collectorId:Int = 0
+
 )
