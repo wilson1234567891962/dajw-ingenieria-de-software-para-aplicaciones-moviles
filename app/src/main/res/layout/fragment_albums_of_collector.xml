@@ -39,14 +39,20 @@
             android:layout_height="1dp"
             android:background="@color/dark_gray" />
 
-        <ImageView
-            android:id="@+id/collector_image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+        <TextView
+            android:id="@+id/header_label_initials_detail"
+            style="@style/Text.Small"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="117dp"
+            android:layout_gravity="center"
             android:layout_margin="@dimen/_1sdp"
-            android:contentDescription="@string/image_contentDescription"
-            tools:src="@mipmap/ic_launcher"
-            android:paddingTop="10dp"/>
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/circle_item"
+            android:backgroundTint="@color/dark_gray"
+            android:gravity="center"
+            android:textColor="?android:attr/colorPrimary"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/collector_name"
@@ -65,7 +71,7 @@
             android:id="@+id/collector_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_3sdp"
             android:gravity="center"
             android:textColor="@color/blue"
             android:textSize="@dimen/_12sdp"
@@ -75,9 +81,9 @@
 
         <TextView
             android:id="@+id/collector_telephone"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_3sdp"
             android:gravity="center"
             android:textColor="@color/blue"
             android:textSize="@dimen/_12sdp"
@@ -87,12 +93,12 @@
             android:id="@+id/titulo_lista_albumes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/_1sdp"
+            android:layout_margin="@dimen/_5sdp"
             android:gravity="center"
             android:textColor="@color/blue"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
-            android:text="@string/albumes"
+            android:text="@string/albumes_collector"
             android:paddingBottom="0dp"/>
 
         <TextView

@@ -69,7 +69,8 @@ class AlbumsOfCollectorFragment : Fragment() {
         activity.findViewById<TextView>(R.id.collector_name).apply{text=args.collector.name }
         activity.findViewById<TextView>(R.id.collector_email).apply{text=args.collector.email }
         activity.findViewById<TextView>(R.id.collector_telephone).apply{text=args.collector.telephone}
-        args.collector.name.first().toString()
+        activity.findViewById<TextView>(R.id.header_label_initials_detail).apply { text = args.collector.name.first().toString()}
+
 
         Log.d("Args", args.collectorId.toString())
 

@@ -17,7 +17,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="descripcion">Descripcion:</string>
     <string name="fecha_de_creacion">Fecha de creacion:</string>
-    <string name="albumes">Albumes</string>
+    <string name="albumes">Albumes del Artista</string>
+    <string name="albumes_collector">Albumes del Coleccionista</string>
 
 
     <string name="detail_album_title">Detalle album</string>
