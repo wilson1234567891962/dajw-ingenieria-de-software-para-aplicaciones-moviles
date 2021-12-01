@@ -22,6 +22,7 @@
                 android:id="@+id/back_detail_collector"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@string/usability_back"
                 android:src="@drawable/back"/>
 
             <TextView
@@ -49,7 +50,7 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/circle_item"
-            android:backgroundTint="@color/dark_gray"
+            android:backgroundTint="@color/light_gray"
             android:gravity="center"
             android:textColor="?android:attr/colorPrimary"
             android:textSize="30dp" />

@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:layout_margin="@dimen/_1sdp"
-                android:contentDescription="@string/image_contentDescription"
+                android:contentDescription="@string/imagen_de_album"
                 tools:src="@mipmap/ic_launcher"
                 android:paddingTop="5dp"/>
 
