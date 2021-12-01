@@ -1,17 +1,16 @@
 package com.co.retrofit.app.feature.view.adapter
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.co.retrofit.app.R
-import com.co.retrofit.app.databinding.AlbumOfArtistItemBinding
 import com.co.retrofit.app.databinding.AlbumOfCollectorItemBinding
 import com.co.retrofit.app.feature.model.dto.Album
 

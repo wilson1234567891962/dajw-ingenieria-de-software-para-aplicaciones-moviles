@@ -18,11 +18,9 @@ import com.co.retrofit.data.model.dto.Music
 import com.google.gson.JsonElement
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
-import com.co.base.retrofit.extension.hideLoader
-import com.co.base.retrofit.extension.showLoader
 import com.co.retrofit.app.databinding.FragmentAddMusicBinding
 import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.DetailAlbum
+
 
 class AlbumMusicFragment : Fragment() {
     private var mBinding: FragmentAddMusicBinding? = null

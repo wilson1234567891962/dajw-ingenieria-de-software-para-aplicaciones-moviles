@@ -3,16 +3,9 @@ package com.co.retrofit.app.feature.repositories
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
-import android.util.Log
-import com.android.volley.VolleyError
 import com.co.retrofit.app.feature.database.dao.AlbumsOfArtistDao
 import com.co.retrofit.app.feature.model.dto.Album
-import com.co.retrofit.app.feature.model.dto.Artist
-import com.co.retrofit.app.feature.network.CacheManager
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 class AlbumsOfArtistRepository (val application: Application, private val albumsOfArtistDao: AlbumsOfArtistDao) {
 

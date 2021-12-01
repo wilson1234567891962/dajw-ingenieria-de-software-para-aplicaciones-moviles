@@ -3,7 +3,6 @@ package com.co.retrofit.app.feature.repositories
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
-import com.co.retrofit.app.feature.database.dao.AlbumsOfArtistDao
 import com.co.retrofit.app.feature.database.dao.AlbumsOfCollectorDao
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter

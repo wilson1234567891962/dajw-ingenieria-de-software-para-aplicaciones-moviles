@@ -1,17 +1,11 @@
 package com.co.retrofit.app.feature.viewmodel
 
 import android.app.Application
-import android.util.Log
-import android.widget.TextView
 import androidx.lifecycle.*
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
 import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
-import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -7,10 +7,6 @@ import androidx.room.RoomDatabase
 import com.co.retrofit.app.feature.model.dto.Album
 import com.co.retrofit.app.feature.model.dto.Artist
 import com.co.retrofit.app.feature.model.dto.Collector
-import androidx.sqlite.db.SupportSQLiteDatabase
-
-import androidx.room.migration.Migration
-
 
 
 

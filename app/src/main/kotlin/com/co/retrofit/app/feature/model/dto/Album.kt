@@ -3,7 +3,7 @@ package com.co.retrofit.app.feature.model.dto
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
-import org.json.JSONArray
+
 
 @Serializable
 @Entity(tableName = "albums_table")
