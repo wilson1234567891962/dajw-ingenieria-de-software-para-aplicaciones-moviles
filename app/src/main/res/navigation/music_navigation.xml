@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/mobile_navigation"
-        app:startDestination="@+id/navigation_album">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_album">
     <fragment
-            android:id="@+id/navigation_album"
-            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
-            android:label="@string/title_home"
-            tools:layout="@layout/fragment_album" >
+        android:id="@+id/navigation_album"
+        android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_album" >
     </fragment>
     <fragment
-            android:id="@+id/navigation_collector"
-            android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
-            android:label="@string/title_collector"
-            tools:layout="@layout/fragment_collector" >
-    </fragment>
-    <fragment
-            android:id="@+id/fragment_album_creation"
-            android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
-            android:label="@string/title_collector"
-            tools:layout="@layout/fragment_album_creation" >
-    </fragment>
-    <fragment
-            android:id="@+id/navigation_artist"
-            android:name="com.co.retrofit.app.feature.view.fragments.ArtistListFragment"
-            android:label="@string/title_artist"
-            tools:layout="@layout/fragment_artist_list">
+        android:id="@+id/navigation_collector"
+        android:name="com.co.retrofit.app.feature.view.fragments.CollectorFragment"
+        android:label="@string/title_collector"
+        tools:layout="@layout/fragment_collector" >
         <action
-                android:id="@+id/action_navigation_artist_to_navigation_albums_of_artist"
-                app:destination="@id/navigation_albums_of_artist" />
+            android:id="@+id/action_navigation_collector_to_navigation_album_of_collector"
+            app:destination="@id/navigation_album_of_collector" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_album_creation"
+        android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumCreation"
+        android:label="@string/title_collector"
+        tools:layout="@layout/fragment_album_creation" >
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_artist"
+        android:name="com.co.retrofit.app.feature.view.fragments.ArtistListFragment"
+        android:label="@string/title_artist"
+        tools:layout="@layout/fragment_artist_list">
+        <action
+            android:id="@+id/action_navigation_artist_to_navigation_albums_of_artist"
+            app:destination="@id/navigation_albums_of_artist" />
     </fragment>
 
     <fragment
@@ -38,21 +41,34 @@
         android:label="@string/title_artist" />
 
     <fragment
-            android:id="@+id/navigation_albums_of_artist"
-            android:name="com.co.retrofit.app.feature.view.fragments.AlbumsOfArtistFragment"
-            android:label="AlbumsOfArtist"
-            tools:layout="@layout/fragment_albums_of_artist" >
-            <argument
+        android:id="@+id/navigation_albums_of_artist"
+        android:name="com.co.retrofit.app.feature.view.fragments.AlbumsOfArtistFragment"
+        android:label="AlbumsOfArtist"
+        tools:layout="@layout/fragment_albums_of_artist" >
+        <argument
             android:name="artistId"
             app:argType="integer" />
         <argument
-                android:name="artist"
-                app:argType="com.co.retrofit.app.feature.model.dto.Artist" />
+            android:name="artist"
+            app:argType="com.co.retrofit.app.feature.model.dto.Artist" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_album_of_collector"
+        android:name="com.co.retrofit.app.feature.view.fragments.AlbumsOfCollectorFragment"
+        android:label="AlbumsOfCollectorFragment">
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+        <argument
+            android:name="collector"
+            app:argType="com.co.retrofit.app.feature.model.dto.Collector" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_add_music"
         android:name="com.co.retrofit.app.feature.view.fragments.album.AlbumMusicFragment"
         android:label="@string/title_artist" />
+
 
 </navigation>

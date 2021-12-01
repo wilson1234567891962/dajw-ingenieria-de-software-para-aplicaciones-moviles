@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.data.RepositoryProvider
 import com.co.retrofit.data.livedata.ResponseLiveData
-import com.co.retrofit.data.model.dto.DetailAlbum
 import com.co.retrofit.data.model.dto.Music
 import com.google.gson.JsonElement
 

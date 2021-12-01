@@ -11,12 +11,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.base.retrofit.delegate.viewProvider
-import com.co.base.retrofit.extension.hideLoader
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.FragmentAlbumCreationBinding
 import com.co.retrofit.app.feature.view.activities.Maintenance

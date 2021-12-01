@@ -6,55 +6,50 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.co.base.retrofit.delegate.viewProvider
 import com.co.retrofit.app.R
-import com.co.retrofit.app.databinding.FragmentAlbumsOfArtistBinding
+import com.co.retrofit.app.databinding.FragmentAlbumsOfCollectorBinding
 import com.co.retrofit.app.feature.RetrofitApplication
 import com.co.retrofit.app.feature.model.dto.Album
-import com.co.retrofit.app.feature.view.adapter.AlbumOfArtistAdapter
-import com.co.retrofit.app.feature.viewmodel.AlbumsOfArtistViewModel
+import com.co.retrofit.app.feature.view.adapter.AlbumsOfCollectorAdapter
+import com.co.retrofit.app.feature.viewmodel.AlbumsOfCollectorViewModel
 
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class AlbumsOfArtistFragment : Fragment() {
+class AlbumsOfCollectorFragment : Fragment() {
 
-    private var _binding: FragmentAlbumsOfArtistBinding? = null
+    private var _binding: FragmentAlbumsOfCollectorBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: AlbumsOfArtistViewModel
+    private lateinit var viewModel: AlbumsOfCollectorViewModel
     private lateinit var recyclerView: RecyclerView
-    private var viewModelAdapter: AlbumOfArtistAdapter? = null
-    private val back: View by viewProvider(R.id.back_detail_artist)
+    private var viewModelAdapter: AlbumsOfCollectorAdapter? = null
+    private val back: View by viewProvider(R.id.back_detail_collector)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAlbumsOfArtistBinding.inflate(inflater, container, false)
+        _binding = FragmentAlbumsOfCollectorBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = AlbumOfArtistAdapter(this@AlbumsOfArtistFragment)
+        viewModelAdapter = AlbumsOfCollectorAdapter(this@AlbumsOfCollectorFragment)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        recyclerView = binding.albumsOfArtistRecyclerView
+        recyclerView = binding.albumsOfCollectorRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
         setUpListenerEvent()
@@ -65,26 +60,24 @@ class AlbumsOfArtistFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = getString(R.string.title_albums_of_artist)
+        activity.actionBar?.title = getString(R.string.title_albums_of_collector)
 
-        val args: AlbumsOfArtistFragmentArgs by navArgs()
+        val args: AlbumsOfCollectorFragmentArgs by navArgs()
 
         //val date = LocalDate.parse(args.artist.creationDate, DateTimeFormatter.ISO_DATE)
 
-        activity.findViewById<TextView>(R.id.artist_name).apply{text=args.artist.name }
-        activity.findViewById<TextView>(R.id.artist_description).apply{text=args.artist.description }
-        activity.findViewById<TextView>(R.id.artist_creation_date).apply{text=args.artist.creationDate}
-        Glide.with(activity)
-            .load(args.artist.image.toUri().buildUpon().scheme("https").build())
-            .apply(RequestOptions.circleCropTransform().placeholder(R.drawable.loading_animation).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
-            .into(activity.findViewById<ImageView>(R.id.artist_image))
+        activity.findViewById<TextView>(R.id.collector_name).apply{text=args.collector.name }
+        activity.findViewById<TextView>(R.id.collector_email).apply{text=args.collector.email }
+        activity.findViewById<TextView>(R.id.collector_telephone).apply{text=args.collector.telephone}
+        activity.findViewById<TextView>(R.id.header_label_initials_detail).apply { text = args.collector.name.first().toString()}
 
-        Log.d("Args", args.artistId.toString())
 
-        viewModel = ViewModelProvider(this, AlbumsOfArtistViewModel.Factory(activity.application as RetrofitApplication, args.artistId, args.artist)).get(AlbumsOfArtistViewModel::class.java)
-        viewModel.albumsOfArtist.observe(viewLifecycleOwner, Observer<List<Album>> {
+        Log.d("Args", args.collectorId.toString())
+
+        viewModel = ViewModelProvider(this, AlbumsOfCollectorViewModel.Factory(activity.application as RetrofitApplication, args.collectorId, args.collector)).get(AlbumsOfCollectorViewModel::class.java)
+        viewModel.albumsOfCollector.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
-                viewModelAdapter!!.albums_of_artist = this
+                viewModelAdapter!!.albums_of_collector = this
                 if(this.isEmpty()){
                     binding.txtNoComments.visibility = View.VISIBLE
                 }else{
@@ -114,6 +107,6 @@ class AlbumsOfArtistFragment : Fragment() {
     @Suppress("UNUSED_PARAMETER")
     private fun backPressed(view: View) {
         val navController = this.activity?.findNavController(R.id.nav_host_fragment)
-        navController?.navigate(R.id.navigation_artist)
+        navController?.navigate(R.id.navigation_collector)
     }
 }
