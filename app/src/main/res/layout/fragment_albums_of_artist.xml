@@ -22,7 +22,8 @@
                 android:id="@+id/back_detail_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_48sdp"
-                android:src="@drawable/back"/>
+                android:src="@drawable/back"
+                android:contentDescription="@string/usability_back"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -116,7 +117,8 @@
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 android:text="@string/albumes"
-                android:paddingBottom="0dp"/>
+                android:paddingBottom="0dp"
+                android:contentDescription="@string/usability_artist_album_title"/>
 
         <TextView
                 android:id="@+id/txt_no_comments"
@@ -133,7 +135,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"
-                tools:listitem="@layout/album_of_artist_item">
+                tools:listitem="@layout/album_of_artist_item"
+                android:contentDescription="@string/usability_artist_album_list">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
