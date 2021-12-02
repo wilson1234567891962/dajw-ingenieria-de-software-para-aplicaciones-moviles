@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.co.base.retrofit.delegate.viewModelProvider
 import com.co.retrofit.app.R
-import com.co.retrofit.app.databinding.FragmentArtistListBinding
 import com.co.retrofit.app.databinding.FragmentCollectorBinding
 import com.co.retrofit.app.feature.RetrofitApplication
 import com.co.retrofit.app.feature.model.dto.Collector

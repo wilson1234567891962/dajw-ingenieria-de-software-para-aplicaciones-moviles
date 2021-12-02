@@ -5,10 +5,13 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.co.retrofit.app.R
 import com.co.retrofit.app.databinding.CollectorItemBinding
 import com.co.retrofit.app.feature.model.dto.Collector
+import com.co.retrofit.app.feature.view.fragments.CollectorFragmentDirections
+
 
 class CollectorAdapter(private  val fragment: Fragment):
     RecyclerView.Adapter<CollectorAdapter.CollectorViewHolder>(){
@@ -36,6 +39,13 @@ class CollectorAdapter(private  val fragment: Fragment):
 
         }
         holder.headerLabelInitials.text = collectors[position].name.first().toString()
+
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = CollectorFragmentDirections.actionNavigationCollectorToNavigationAlbumOfCollector(collectors[position].collectorId, collectors[position])
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
+        }
+
 
     }
 

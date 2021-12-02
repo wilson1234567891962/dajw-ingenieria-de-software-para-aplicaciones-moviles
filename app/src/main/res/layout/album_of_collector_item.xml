@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="album_of_collector" type="com.co.retrofit.app.feature.model.dto.Album"/>
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/iv_dish_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_1sdp"
+                android:contentDescription="@string/imagen_de_album"
+                tools:src="@mipmap/ic_launcher"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:text="@{album_of_collector.name}"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:text="@{album_of_collector.genre}"
+                android:paddingBottom="5dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

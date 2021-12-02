@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import com.co.retrofit.app.feature.database.dao.ArtistsDao
 import com.co.retrofit.app.feature.model.dto.Artist
-import com.co.retrofit.app.feature.network.CacheManager
 import com.co.retrofit.app.feature.network.NetworkServiceAdapter
 
 

@@ -3,6 +3,7 @@
    <dimen name="default_elevation">16dp</dimen>
 
    <dimen name="_1sdp">1.00dp</dimen>
+   <dimen name="_3sdp">3.00dp</dimen>
    <dimen name="_5sdp">5.00dp</dimen>
    <dimen name="_8sdp">8.00dp</dimen>
    <dimen name="_10sdp">10.00dp</dimen>
@@ -11,6 +12,7 @@
    <dimen name="_16sdp">16.00dp</dimen>
    <dimen name="_24sdp">24.00dp</dimen>
    <dimen name="_32sdp">32.00dp</dimen>
+   <dimen name="_48sdp">48.00dp</dimen>
    <dimen name="_50sdp">50.00dp</dimen>
    <dimen name="_70sdp">70.00dp</dimen>
    <dimen name="_80sdp">80.00dp</dimen>

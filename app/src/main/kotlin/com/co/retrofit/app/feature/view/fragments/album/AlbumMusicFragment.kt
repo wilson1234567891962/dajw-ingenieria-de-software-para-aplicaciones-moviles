@@ -1,5 +1,6 @@
 package com.co.retrofit.app.feature.view.fragments.album
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +17,10 @@ import com.co.retrofit.app.feature.viewmodel.album.AlbumMusicViewModel
 import com.co.retrofit.data.model.dto.Music
 import com.google.gson.JsonElement
 import android.content.Intent
-import com.co.base.retrofit.extension.hideLoader
-import com.co.base.retrofit.extension.showLoader
+import android.view.inputmethod.InputMethodManager
 import com.co.retrofit.app.databinding.FragmentAddMusicBinding
+import com.co.retrofit.data.model.dto.Album
+
 
 class AlbumMusicFragment : Fragment() {
     private var mBinding: FragmentAddMusicBinding? = null
@@ -61,20 +63,30 @@ class AlbumMusicFragment : Fragment() {
     }
     @Suppress("UNUSED_PARAMETER")
     private fun addMusic(view: View) {
-        this.activity?.showLoader()
-        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()))
+        albumMusicViewModel.getAlbumSelection()
+            .observeSingleData(this, ::getIdAlbum)
+            .observeErrorThrowable(this, ::observeErrorThrowable)
+
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun getIdAlbum(album: Album){
+        albumMusicViewModel.addMusic(Music(edtName.text.toString(), edtDuration.text.toString()),album.id)
             .observeData(this, ::showDetailResult)
             .observeErrorThrowable(this, ::observeErrorThrowable)
     }
+
+
     @Suppress("UNUSED_PARAMETER")
     private fun showDetailResult(detailAlbum: JsonElement){
-        this.activity?.hideLoader()
+        val imm: InputMethodManager? =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm?.hideSoftInputFromWindow(view?.windowToken, 0)
        Toast.makeText(this.context, "Se agrego con exito ", Toast.LENGTH_SHORT).show()
     }
 
     @Suppress("UNUSED_PARAMETER")
     private fun observeErrorThrowable(error: Throwable){
-        this.activity?.hideLoader()
         val intent = Intent(this.activity, Maintenance::class.java)
         // start your next activity
         startActivity(intent)

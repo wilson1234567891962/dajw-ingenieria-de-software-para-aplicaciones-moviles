@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import com.co.retrofit.data.model.dto.Album
 import com.co.retrofit.data.RepositoryProvider
 import com.co.retrofit.data.livedata.ResponseLiveData
-import com.co.retrofit.data.model.dto.DetailAlbum
 import com.co.retrofit.data.model.dto.Music
 import com.google.gson.JsonElement
 
@@ -17,7 +16,12 @@ class AlbumMusicViewModel(application: Application) :  AndroidViewModel(applicat
         return RepositoryProvider.sessionRepository.setStateFloating(state)
     }
 
-    fun addMusic(music: Music): ResponseLiveData<JsonElement> {
-        return RepositoryProvider.albumRepository.addMusicAlbum(music)
+    fun addMusic(music: Music, id: Int): ResponseLiveData<JsonElement> {
+        return RepositoryProvider.albumRepository.addMusicAlbum(music, id)
     }
+
+    fun getAlbumSelection(): ResponseLiveData<Album> {
+        return RepositoryProvider.albumRepository.getAlbumSelectionMemory()
+    }
+
 }

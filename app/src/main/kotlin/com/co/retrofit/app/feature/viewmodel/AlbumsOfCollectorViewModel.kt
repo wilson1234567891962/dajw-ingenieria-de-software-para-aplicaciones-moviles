@@ -4,20 +4,20 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.co.retrofit.app.feature.database.dao.VinylRoomDatabase
 import com.co.retrofit.app.feature.model.dto.Album
-import com.co.retrofit.app.feature.model.dto.Artist
-import com.co.retrofit.app.feature.repositories.AlbumsOfArtistRepository
+import com.co.retrofit.app.feature.model.dto.Collector
+import com.co.retrofit.app.feature.repositories.AlbumsOfCollectorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: Artist) :  AndroidViewModel(application){
+class AlbumsOfCollectorViewModel (application: Application, collectorId: Int, collector: Collector) :  AndroidViewModel(application){
 
-    private val albumsOfArtistRepository = AlbumsOfArtistRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).albumsDao())
+    private val albumsOfCollectorRepository = AlbumsOfCollectorRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).albumsOfCollectorDao())
 
-    private val _albumsOfArtist = MutableLiveData<List<Album>>()
+    private val _albumsOfCollector = MutableLiveData<List<Album>>()
 
-    val albumsOfArtist: LiveData<List<Album>>
-        get() = _albumsOfArtist
+    val albumsOfCollector: LiveData<List<Album>>
+        get() = _albumsOfCollector
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -29,8 +29,8 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    val id:Int = artistId
-    var artist :Artist = artist
+    val id:Int = collectorId
+    var collector :Collector = collector
         set(value) {
             field = value
         }
@@ -45,8 +45,8 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = albumsOfArtistRepository.refreshData(id)
-                    _albumsOfArtist.postValue(data)
+                    var data = albumsOfCollectorRepository.refreshData(id)
+                    _albumsOfCollector.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
@@ -61,11 +61,11 @@ class AlbumsOfArtistViewModel (application: Application, artistId: Int, artist: 
         _isNetworkErrorShown.value = true
     }
 
-    class Factory(val app: Application, val artistId: Int, val artist: Artist) : ViewModelProvider.Factory {
+    class Factory(val app: Application, val collectorId: Int, val collector: Collector) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AlbumsOfArtistViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(AlbumsOfCollectorViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return AlbumsOfArtistViewModel(app, artistId, artist) as T
+                return AlbumsOfCollectorViewModel(app, collectorId, collector) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

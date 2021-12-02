@@ -1,10 +1,7 @@
 package com.co.retrofit.data
 
 import com.co.retrofit.data.livedata.ResponseLiveData
-import com.co.retrofit.data.model.dto.Album
-import com.co.retrofit.data.model.dto.DetailAlbum
-import com.co.retrofit.data.model.dto.Music
-import com.co.retrofit.data.model.dto.TestDto
+import com.co.retrofit.data.model.dto.*
 import com.google.gson.JsonElement
 
 interface AlbumRepository {
@@ -19,7 +16,9 @@ interface AlbumRepository {
 
     fun setAlbum(albums: List<Album>): Unit = throw NotImplementedError()
 
-    fun addMusicAlbum(music: Music): ResponseLiveData<JsonElement> = throw NotImplementedError()
+    fun addMusicAlbum(music: Music, id: Int): ResponseLiveData<JsonElement> = throw NotImplementedError()
 
     fun getAlbumSelectionMemory(): ResponseLiveData<Album> = throw NotImplementedError()
+
+    fun createAlbum(albumCreation: AlbumCreation): ResponseLiveData<JsonElement>  = throw NotImplementedError()
 }

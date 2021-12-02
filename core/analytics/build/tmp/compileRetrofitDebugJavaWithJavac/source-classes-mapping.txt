@@ -1,2 +1,0 @@
-com/co/analytics/BuildConfig.java
- com.co.analytics.BuildConfig

@@ -16,9 +16,6 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 import org.json.JSONArray
 import org.json.JSONObject
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
 
 
 
@@ -107,6 +104,28 @@ class NetworkServiceAdapter constructor(context: Context) {
                 for (i in 0 until resp.length()) {
                     item = resp.getJSONObject(i)
                     val album = Album(name = item.getString("name"), genre = item.getString("genre"), cover = item.getString("cover"))
+                    Log.d("Response", item.toString())
+                    list.add(i, album)
+                }
+                cont.resume(list)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun getAlbumsOfCollector(collectorId:Int) = suspendCoroutine<List<Album>> { cont ->
+
+        requestQueue.add(getRequest("collectors/$collectorId/albums",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                var list = mutableListOf<Album>()
+                var item: JSONObject? = null
+                var subitem: JSONObject? = null
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    subitem = item.getJSONObject("album")
+                    val album = Album(name = subitem.getString("name"), genre = subitem.getString("genre"), cover = subitem.getString("cover"))
                     Log.d("Response", item.toString())
                     list.add(i, album)
                 }

@@ -1,222 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:tools="http://schemas.android.com/tools">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/detail_album_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <RelativeLayout
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/_24sdp"
-            android:background="@color/white">
+            android:paddingBottom="@dimen/_8sdp">
 
-        <ImageView
+            <ImageView
                 android:id="@+id/arrow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_1sdp"
-                android:contentDescription="@string/image_contentDescription"
-                android:src="@drawable/back"
-                tools:src="@drawable/back" />
+                android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@string/usability_back"
+                android:src="@drawable/back"/>
 
-        <TextView
+            <TextView
+                android:id="@+id/arrow_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/arrow"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/_24sdp"
-                android:paddingTop="@dimen/_8sdp"
-                android:text="Añadir album"
-                android:textSize="@dimen/_24sdp"
-                tools:text="Añadir album" />
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/creation_album_title"
+                android:textAlignment="center"
+                android:textSize="@dimen/_24sdp"/>
 
-    </RelativeLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <TextView
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_below="@+id/relativeLayout"
+            android:background="@color/dark_gray" />
+
+        <TextView
             android:id="@+id/caratula_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_32sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_alignParentLeft="true"
-            android:text="Caratula"
-            />
+            android:paddingTop="@dimen/_24sdp"
+            android:text="Caratula" />
 
-    <EditText
+        <EditText
             android:id="@+id/caratula_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/relativeLayout"
-            android:inputType="text"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:layout_toRightOf="@+id/caratula_label"
+            android:hint="@string/usability_add_album_caratula"
+            android:inputType="text"
+            android:textColorHint="@color/alabaster_solid"
+            android:textSize="@dimen/_16sdp" />
 
-    <TextView
-            android:layout_below="@+id/caratula_label"
+        <TextView
             android:id="@+id/name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
+            android:layout_below="@+id/caratula_label"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_32sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_alignParentLeft="true"
-            android:text="Nombre"
-            />
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_name" />
 
-    <EditText
+        <EditText
+            android:textColorHint="@color/alabaster_solid"
             android:id="@+id/name_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
+            android:hint="@string/usability_add_album_name"
             android:layout_below="@+id/caratula_label"
-            android:inputType="text"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:layout_toRightOf="@+id/caratula_label"
+            android:inputType="text"
+            android:textSize="@dimen/_16sdp" />
 
-    <TextView
-            android:layout_below="@+id/name_label"
+        <TextView
             android:id="@+id/artista_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
+            android:layout_below="@+id/name_label"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_32sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_alignParentLeft="true"
-            android:text="Artista"
-            />
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_artist" />
 
-    <EditText
+        <EditText
+            android:textColorHint="@color/alabaster_solid"
             android:id="@+id/artista_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
+            android:hint="@string/usability_add_album_artist"
             android:layout_below="@+id/name_label"
-            android:inputType="text"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:layout_toRightOf="@+id/caratula_label"
+            android:inputType="text"
+            android:textSize="@dimen/_16sdp" />
 
 
-    <TextView
-            android:layout_below="@+id/artista_label"
+        <TextView
             android:id="@+id/lanzamiento_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
-            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_below="@+id/artista_label"
             android:layout_alignParentLeft="true"
-            android:text="Lanzamiento"
-            />
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_release_date" />
 
-    <EditText
+        <EditText
             android:id="@+id/lanzamiento_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/artista_label"
             android:layout_marginLeft="@dimen/_24sdp"
-            android:inputType="text"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:layout_toRightOf="@+id/caratula_label"
+            android:hint="@string/usability_add_album_release"
+            android:inputType="text"
+            android:textColorHint="@color/alabaster_solid"
+            android:textSize="@dimen/_16sdp" />
 
-    <TextView
-            android:layout_below="@+id/lanzamiento_label"
+        <TextView
             android:id="@+id/Genero_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
+            android:layout_below="@+id/lanzamiento_label"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_32sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_alignParentLeft="true"
-            android:text="Genero"
-            />
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_gnere" />
 
-    <EditText
+        <EditText
             android:id="@+id/Genero_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/lanzamiento_label"
-            android:inputType="text"
             android:layout_marginRight="@dimen/_24sdp"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:layout_toRightOf="@+id/caratula_label"
+            android:inputType="text"
+            android:hint="@string/usability_add_album_gender"
+            android:textColorHint="@color/alabaster_solid"
+            android:textSize="@dimen/_16sdp" />
 
 
-    <TextView
-            android:layout_below="@+id/Genero_label"
+        <TextView
             android:id="@+id/casa_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
-            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_below="@+id/Genero_label"
             android:layout_alignParentLeft="true"
-            android:text="Casa discrografica"
-            />
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_record" />
 
-    <EditText
+        <EditText
             android:id="@+id/casa_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_48sdp"
             android:layout_below="@+id/Genero_label"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_24sdp"
+            android:layout_toRightOf="@+id/caratula_label"
+            android:hint="@string/usability_add_album_discrografy"
             android:inputType="text"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:textColorHint="@color/alabaster_solid"
+            android:textSize="@dimen/_16sdp" />
 
-    <TextView
-            android:layout_below="@+id/casa_label"
+        <TextView
             android:id="@+id/descripcion_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_24sdp"
-            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_below="@+id/casa_label"
             android:layout_alignParentLeft="true"
-            android:text="Descripcion"
-            />
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:paddingTop="@dimen/_24sdp"
+            android:text="@string/creation_album_description" />
 
-    <EditText
+        <EditText
             android:id="@+id/descripcion_input"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/casa_label"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_24sdp"
-            android:inputType="text|textMultiLine"
+            android:layout_toRightOf="@+id/caratula_label"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:background="@color/white"
             android:gravity="top"
-            android:layout_toRightOf="@+id/caratula_label" />
+            android:backgroundTint="@color/white"
+            android:hint="@string/usability_add_album_description"
+            android:inputType="text|textMultiLine"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/_16sdp" />
 
 
-    <LinearLayout
-            android:layout_marginTop="@dimen/_24sdp"
-            android:layout_below="@+id/descripcion_input"
+        <LinearLayout
+            android:id="@+id/content_button"
             android:layout_width="match_parent"
-            android:paddingLeft="@dimen/_24sdp"
-            android:paddingRight="@dimen/_24sdp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_below="@+id/descripcion_input"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/_24sdp"
+            android:paddingRight="@dimen/_24sdp">
 
-        <Button
+            <Button
                 android:id="@+id/btn_cancelar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cancelar"
                 android:layout_marginRight="@dimen/_24sdp"
+                android:layout_weight=".5"
                 android:background="@drawable/border_btn"
-                android:layout_weight=".5"/>
+                android:text="@string/creation_album_btn_cancelation" />
 
-        <Button
+            <Button
                 android:id="@+id/btn_aceptar"
-                android:layout_marginLeft="@dimen/_24sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_24sdp"
+                android:layout_weight=".5"
                 android:background="@drawable/border_btn"
-                android:text="Aceptar"
-                android:layout_weight=".5"/>
+                android:text="@string/creation_album_btn_accept" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</RelativeLayout>
-</androidx.core.widget.NestedScrollView >
+        <TextView
+            android:layout_below="@+id/content_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"/>
+
+    </RelativeLayout>
+</ScrollView>
